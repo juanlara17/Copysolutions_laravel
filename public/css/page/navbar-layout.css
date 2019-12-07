@@ -1,0 +1,15 @@
+.header {
+    background: url("https://wowslider.com/sliders/demo-77/data1/images/road220058.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 80vh;
+}
+
+.header .navbar {
+    background-color: transparent !important;
+}
+
+.navbar .navbar-brand img{
+    width: 200px;
+    height: auto;
+    float: left;
+}
