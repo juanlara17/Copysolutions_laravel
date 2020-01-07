@@ -29,11 +29,8 @@
         {{-- NAVBAR --}}
         @include('layouts.navbar')
 
-        {{-- CAROUSEL --}}
-        @include('layouts.carousel')
-
         <div class="container">
-            @yield('container')
+            @yield('content')
         </div>
 
         {{-- FOOTER --}}

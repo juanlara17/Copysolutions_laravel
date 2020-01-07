@@ -14,15 +14,16 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 255);
-            $table->string('slug');
-            $table->text('description');
-            $table->string('extract', 300);
-            $table->decimal('price', 12, 2);
-            $table->decimal('price_old', 12, 2);
+            $table->string('name', 255)->unique();
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->string('extract', 300)->nullable();
+            $table->bigInteger('quantity')->unsigned()->default(0);
+            $table->decimal('price', 12, 2)->default(0);
+            $table->decimal('price_old', 12, 2)->default(0);
             $table->integer('percent_promo')->unsigned()->default(0);
             $table->string('image', 300);
-            $table->boolean('visible');
+            $table->boolean('visible'); /* Es lo mismo que ACTIVO */
             $table->boolean('slide_principal');
             $table->string('state');
             $table->bigInteger('visits')->unsigned()->default(0);

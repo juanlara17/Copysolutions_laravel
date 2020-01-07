@@ -131,7 +131,7 @@
                                     <a href="#">About Us</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#">Products <i class="icon-angle-down"></i></a>
+                                    <a href="/catalog">Porfolio <i class="icon-angle-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
                                         <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
