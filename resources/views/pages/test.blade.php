@@ -37,7 +37,7 @@
                 <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
 
             </div>
-            <input type="submit" value="Guardar" class="btn btn-primary float-right">
+            <input :disabled="disable_button==1" type="submit" value="Guardar" class="btn btn-primary float-right">
         </form>
         <br><br>
 
@@ -57,7 +57,8 @@
             slug: '',
             div_mensaje_slug: 'Slug Existente',
             div_clase_slug: 'badge badge-danger',
-            div_aparecer: false
+            div_aparecer: false,
+            disable_button: 0
         },
         computed: {
             generarSLug : function(){
@@ -82,8 +83,10 @@
                     // console.log(this.div_mensaje_slug);
                     if (this.div_mensaje_slug === 'Slug disponible') {
                         this.div_clase_slug = 'badge badge-success';
+                        this.disable_button = 0;
                     }else{
                         this.div_clase_slug = 'badge badge-danger';
+                        this.disable_button = 1;
                     }
                     this.div_aparecer = true;
                 })
