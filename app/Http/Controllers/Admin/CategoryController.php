@@ -46,7 +46,7 @@ class CategoryController extends Controller
     public function show($slug)
     {
         if (Category::where('slug', $slug)->first()) {
-            return 'Slug exite';
+            return 'Slug existente';
         }else{
             return 'Slug disponible';
         }

@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('api', function () {
-    return view('test');
+    return view('pages.test');
 });
 
 Auth::routes();
