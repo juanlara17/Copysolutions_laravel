@@ -20,7 +20,7 @@ Route::get('api', function () {
 });
 
 Route::get('admin', function () {
-    return view('admin.admin');
+    return view('admin.category.create');
 });
 
 Auth::routes();
