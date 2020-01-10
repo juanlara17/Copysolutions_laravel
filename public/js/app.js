@@ -49637,7 +49637,57 @@ Vue.component('formulario', __webpack_require__(/*! ./components/Formulario.vue 
 var app = new Vue({
   el: '#app',
   data: {
-    name: 'Juan Felipe'
+    nombre: 'Jhonatan Fernández',
+    slug: '',
+    div_mensaje_slug: 'Slug Existente',
+    div_clase_slug: 'badge badge-danger',
+    div_aparecer: false,
+    disable_button: 0
+  },
+  computed: {
+    generarSLug: function generarSLug() {
+      var _char = {
+        "á": "a",
+        "é": "e",
+        "í": "i",
+        "ó": "o",
+        "ú": "u",
+        "Á": "A",
+        "É": "E",
+        "Í": "I",
+        "Ó": "O",
+        "Ú": "U",
+        "ñ": "n",
+        "Ñ": "N",
+        " ": "-",
+        "_": "-"
+      };
+      var expr = /[áéíóúÁÉÍÓÚÑñ_ ]/g;
+      this.slug = this.nombre.trim().replace(expr, function (e) {
+        return _char[e];
+      }).toLowerCase();
+      return this.slug; //return this.nombre.trim().replace(/ /g,'-').toLowerCase()
+    }
+  },
+  methods: {
+    getCategory: function getCategory() {
+      var _this = this;
+
+      var url = 'api/category/' + this.slug;
+      axios.get(url).then(function (response) {
+        _this.div_mensaje_slug = response.data; // console.log(this.div_mensaje_slug);
+
+        if (_this.div_mensaje_slug === 'Slug disponible') {
+          _this.div_clase_slug = 'badge badge-success';
+          _this.disable_button = 0;
+        } else {
+          _this.div_clase_slug = 'badge badge-danger';
+          _this.disable_button = 1;
+        }
+
+        _this.div_aparecer = true;
+      });
+    }
   }
 });
 

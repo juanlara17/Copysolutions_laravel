@@ -29,7 +29,6 @@ Vue.component('formulario', require('./components/Formulario.vue').default);
 
 const app = new Vue({
     el: '#app',
-    data: {
-        name: 'Juan Felipe'
-    }
 });
+
+require('./apicategory')
