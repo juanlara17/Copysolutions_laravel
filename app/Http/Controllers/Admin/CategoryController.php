@@ -16,14 +16,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        /*$cat = new Category();
-        $cat->name = 'Niños';
-        $cat->slug = 'Niños';
-        $cat->description = 'Niños';
-        $cat->save();
-        return $cat;*/
 
-        return Category::all();
+    }
+
+    public function create()
+    {
+        return view('admin.category.create');
     }
 
     /**
@@ -34,7 +32,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
+        return $request;
     }
 
     /**

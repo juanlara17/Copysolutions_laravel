@@ -5,21 +5,24 @@
 @section('content')
 
     <div id="app">
-    <!-- Default box -->
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Create Category</h3>
+        <form action="{{ route('admin.category.store') }}" method="POST">
 
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fas fa-times"></i></button>
-            </div>
-        </div>
-        <div class="card-body">
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Create Category</h3>
 
-                <form action="">
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                title="Collapse">
+                            <i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                title="Remove">
+                            <i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="card-body">
+
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input v-model="nombre"
@@ -29,26 +32,27 @@
 
                                class="form-control" type="text" name="nombre" id="nombre">
                         <label for="slug">Slug</label>
-                        <input readonly v-model="generarSLug"  class="form-control" type="text" name="slug" id="slug">
+                        <input readonly v-model="generarSLug" class="form-control" type="text" name="slug" id="slug">
                         <div v-if='div_aparecer' v-bind:class="div_clase_slug">
                             @{{ div_mensaje_slug }}
                         </div>
                         <br v-if='div_aparecer'>
                         <label for="descripcion">Descripción</label>
-                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30"
+                                  rows="5"></textarea>
 
                     </div>
-                </form>
-                <br>
-                <br>
-            </div>
+                    <br>
+                    <br>
+                </div>
 
-        <!-- /.card-body -->
-        <div class="card-footer">
-            <input :disabled="disable_button==1" type="submit" value="Save" class="btn btn-primary float-right">
-        </div>
-        <!-- /.card-footer-->
-    </div>
-    <!-- /.card -->
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <input :disabled="disable_button==1" type="submit" value="Save" class="btn btn-primary float-right">
+                </div>
+                <!-- /.card-footer-->
+            </div>
+            <!-- /.card -->
+        </form>
     </div>
 @endsection

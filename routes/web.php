@@ -20,11 +20,14 @@ Route::get('api', function () {
 });
 
 Route::get('admin', function () {
-    return view('admin.category.create');
+    return view('admin.admin');
 });
+
+Route::resource('admin/category', 'Admin\CategoryController')->names('admin.category');
+
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/catalog', 'StoreController@catalog');

@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('category','Admin\CategoryController');
+Route::apiResource('store','StoreController')->names('api.store');
