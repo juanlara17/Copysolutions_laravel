@@ -49664,7 +49664,7 @@ var app = new Vue({
         });
       } else {
         this.div_clase_slug = 'badge badge-success';
-        this.div_mensaje_slug = 'Available';
+        this.div_mensaje_slug = 'Write category';
         this.disable_button = 1;
         this.div_aparecer = true;
       }
