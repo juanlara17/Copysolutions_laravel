@@ -24,21 +24,21 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="nombre">Name</label>
+                        <label for="name">Name</label>
                         <input v-model="nombre"
 
                                @blur="getCategory"
                                @focus="div_aparecer=false"
 
-                               class="form-control" type="text" name="nombre" id="nombre">
+                               class="form-control" type="text" name="name" id="name">
                         <label for="slug">Slug</label>
                         <input readonly v-model="generarSLug" class="form-control" type="text" name="slug" id="slug">
                         <div v-if='div_aparecer' v-bind:class="div_clase_slug">
                             @{{ div_mensaje_slug }}
                         </div>
                         <br v-if='div_aparecer'>
-                        <label for="descripcion">Description</label>
-                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30"
+                        <label for="description">Description</label>
+                        <textarea class="form-control" name="description" id="description" cols="30"
                                   rows="5"></textarea>
 
                     </div>
