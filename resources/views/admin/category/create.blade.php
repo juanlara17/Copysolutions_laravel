@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <div id="app">
+    <div id="apicategory">
         <form action="{{ route('admin.category.store') }}" method="POST">
-
+            @csrf
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
@@ -24,7 +24,7 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="nombre">Nombre</label>
+                        <label for="nombre">Name</label>
                         <input v-model="nombre"
 
                                @blur="getCategory"
@@ -37,7 +37,7 @@
                             @{{ div_mensaje_slug }}
                         </div>
                         <br v-if='div_aparecer'>
-                        <label for="descripcion">Descripción</label>
+                        <label for="descripcion">Description</label>
                         <textarea class="form-control" name="descripcion" id="descripcion" cols="30"
                                   rows="5"></textarea>
 

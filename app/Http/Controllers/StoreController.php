@@ -28,9 +28,9 @@ class StoreController extends Controller
     public function show($slug)
     {
         if (Category::where('slug', $slug)->first()) {
-            return 'Slug existente';
+            return 'Existing';
         }else{
-            return 'Slug disponible';
+            return 'Available';
         }
     }
 }
