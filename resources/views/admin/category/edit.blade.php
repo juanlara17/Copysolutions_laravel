@@ -1,14 +1,15 @@
 @extends('admin.admin')
 
-@section('title', 'Create Category')
+@section('title', 'Edit Category')
 
 @section('content')
 
     <div id="apicategory">
-        <form action="{{ route('admin.category.store') }}" method="POST">
+        <form action="{{ route('admin.category.update', $cat->id) }}" method="POST">
             @csrf
+            @method('PUT')
 
-
+            <div id="nameTemp" v-show="false">{{ $cat->name }}</div>
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
@@ -41,7 +42,7 @@
                         <br v-if='div_aparecer'>
                         <label for="description">Description</label>
                         <textarea class="form-control" name="description" id="description" cols="30"
-                                  rows="5"></textarea>
+                                  rows="5">{{ $cat->description }}</textarea>
 
                     </div>
                     <br>

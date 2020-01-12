@@ -63,10 +63,27 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function edit($slug)
+    {
+        $cat = Category::where('slug', $slug)->firstOrFail();
+        $edit = 'Si';
+
+        return view('admin.category.edit', compact('cat', 'edit'));
+    }
     public function update(Request $request, $id)
     {
-        //
+        $cat = Category::findOrFail($id);
+        /*$cat->name          = $request->name;
+        $cat->slug          = $request->slug;
+        $cat->description   = $request->description;
+        $cat->save();
+        */
+
+        $cat->fill($request->all())->save();
+        return $cat;
     }
+
 
     /**
      * Remove the specified resource from storage.

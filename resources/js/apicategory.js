@@ -1,12 +1,13 @@
 const app = new Vue({
     el: '#apicategory',
     data: {
-        nombre: 'Jhonatan Fernández',
+        nombre: '',
+        nameTemp: '',
         slug: '',
         div_mensaje_slug: 'Existing',
         div_clase_slug: 'badge badge-danger',
         div_aparecer: false,
-        disable_button: 0
+        disable_button: 1
     },
     computed: {
         generarSLug : function(){
@@ -45,6 +46,12 @@ const app = new Vue({
                 this.disable_button = 1;
                 this.div_aparecer = true;
             }
+        }
+    },
+    mounted() {
+        if (document.getElementById('nameTemp').innerHTML) {
+            this.nombre = document.getElementById('nameTemp').innerHTML;
+            this.disable_button = 0;
         }
     }
 });

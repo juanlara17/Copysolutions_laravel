@@ -11,20 +11,23 @@
 |
 */
 
+/***** Official Page  *****/
 Route::get('/', function () {
     return view('pages.index');
 });
 
+/***** Test Page *****/
 Route::get('api', function () {
     return view('pages.test');
 });
 
+/***** Panel Admin *****/
 Route::get('admin', function () {
     return view('admin.admin');
 });
 
+/***** Resources Category ******/
 Route::resource('admin/category', 'Admin\CategoryController')->names('admin.category');
-
 
 
 Auth::routes();
