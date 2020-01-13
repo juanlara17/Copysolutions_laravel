@@ -720,8 +720,15 @@
             <!-- Main content -->
             <section class="content">
 
-                @yield('content')
-
+                @if(session('message'))
+                    <div class="alert alert-success alert-dimissible fade show" role="alert">
+                        {{ session('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+            @endif
+            @yield('content')
             </section>
             <!-- /.content -->
         </div>

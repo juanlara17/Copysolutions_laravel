@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('name')->paginate(10);
+        $categories = Category::orderBy('name')->paginate(5);
 
         return view('admin.category.index', compact('categories'));
     }
@@ -40,7 +40,11 @@ class CategoryController extends Controller
         $cat->description   = $request->descripcion;
         $cat->save();*/
 
-        return Category::create($request->all());
+        //return Category::create($request->all());
+        Category::create($request->all());
+
+        return redirect()->route('admin.category.index')->with('message',
+            'Record created successfully');
     }
 
     /**
@@ -83,7 +87,11 @@ class CategoryController extends Controller
         */
 
         $cat->fill($request->all())->save();
-        return $cat;
+        //return $cat;
+
+
+        return redirect()->route('admin.category.index')->with('message',
+            'Record updated successfully');
     }
 
 
