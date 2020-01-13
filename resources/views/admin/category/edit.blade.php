@@ -51,6 +51,7 @@
 
                 <!-- /.card-body -->
                 <div class="card-footer">
+                    <a class="btn badge-danger" href="{{ route('cancel','admin.category.index') }}">Cancel</a>
                     <input :disabled="disable_button==1" type="submit" value="Save" class="btn btn-primary float-right">
                 </div>
                 <!-- /.card-footer-->

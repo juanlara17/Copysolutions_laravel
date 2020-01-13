@@ -727,7 +727,15 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-            @endif
+                @endif
+                @if(session('cancel'))
+                    <div class="alert alert-danger alert-dimissible fade show" role="alert">
+                        {{ session('cancel') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
             @yield('content')
             </section>
             <!-- /.content -->
