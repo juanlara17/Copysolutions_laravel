@@ -55,11 +55,10 @@ class CategoryController extends Controller
      */
     public function show($slug)
     {
-        if (Category::where('slug', $slug)->first()) {
-            return 'Slug existente';
-        }else{
-            return 'Slug disponible';
-        }
+        $cat = Category::where('slug', $slug)->firstOrFail();
+        $editar = 'Si';
+        return redirect()->route('admin.category.show')->with('cat',
+            'editar');
     }
 
     /**
@@ -103,6 +102,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Category::findOrFail($id);
+        $cat->delete();
+
+        return redirect()->route('admin.category.index')->with('message', 'Record deleted successfully');
     }
 }

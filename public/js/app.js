@@ -49672,19 +49672,12 @@ var app = new Vue({
     }
   },
   mounted: function mounted() {
-    if (document.getElementById('nameTemp').innerHTML) {
+    if (document.getElementById('nameTemp')) {
       this.nombre = document.getElementById('nameTemp').innerHTML;
       this.disable_button = 0;
     }
   }
 });
-var table = document.getElementsByTagName('table')[0],
-    rows = table.getElementsByTagName('tr'),
-    text = 'textContent' in document ? 'textContent' : 'innerText';
-
-for (var i = 1, len = rows.length; i < len; i++) {
-  rows[i].children[0][text] = i + ' ' + rows[i].children[0][text];
-}
 
 /***/ }),
 
@@ -49721,11 +49714,19 @@ Vue.component('formulario', __webpack_require__(/*! ./components/Formulario.vue 
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-/*const app = new Vue({
-    el: '#app',
-});*/
+if (document.getElementById('app')) {
+  var app = new Vue({
+    el: '#app'
+  });
+}
 
-__webpack_require__(/*! ./apicategory */ "./resources/js/apicategory.js");
+if (document.getElementById('apicategory')) {
+  __webpack_require__(/*! ./apicategory */ "./resources/js/apicategory.js");
+}
+
+if (document.getElementById('confirmdelete')) {
+  __webpack_require__(/*! ./confirmdelete */ "./resources/js/confirmdelete.js");
+}
 
 /***/ }),
 
@@ -49909,6 +49910,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Formulario_vue_vue_type_template_id_c3f6ecc6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/confirmdelete.js":
+/*!***************************************!*\
+  !*** ./resources/js/confirmdelete.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var confirmdelete = new Vue({
+  el: '#confirmdelete',
+  data: {
+    urltodelete: ''
+  },
+  methods: {
+    get_delete: function get_delete(id) {
+      this.urltodelete = document.getElementById('urlbase').innerHTML + '/' + id; // alert(this.urltodelete)
+
+      $('#modalDelete').modal('show');
+    }
+  }
+});
+var table = document.getElementsByTagName('table')[0],
+    rows = table.getElementsByTagName('tr'),
+    text = 'textContent' in document ? 'textContent' : 'innerText';
+
+for (var i = 1, len = rows.length; i < len; i++) {
+  rows[i].children[0][text] = i + ' ' + rows[i].children[0][text];
+}
 
 /***/ }),
 
