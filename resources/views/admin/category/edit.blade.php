@@ -2,6 +2,11 @@
 
 @section('title', 'Edit Category')
 
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Category</a></li>
+    <li class="breadcrumb-item active">@yield('title')</li>
+@endsection
+
 @section('content')
 
     <div id="apicategory">

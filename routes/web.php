@@ -24,7 +24,7 @@ Route::get('api', function () {
 /***** Panel Admin *****/
 Route::get('admin', function () {
     return view('admin.admin');
-});
+})->name('admin');
 
 /***** Resources Category ******/
 Route::resource('admin/category', 'Admin\CategoryController')->names('admin.category');

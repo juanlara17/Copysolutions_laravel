@@ -2,6 +2,10 @@
 
 @section('title', 'Category')
 
+@section('breadcrumb')
+    <li class="breadcrumb-item active">@yield('title')</li>
+@endsection
+
 @section('content')
 
     <div id="confirmdelete" class="row">
@@ -11,13 +15,14 @@
             <div class="card">
                 <div class="card-header">
                     <a href="{{ route('admin.category.create') }}" class="btn btn-info"><i class="fa fa-plus-circle"></i> Category</a>
-
-                    <div class="card-tools input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    <form class="float-right">
+                        <div class="card-tools input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="name" class="form-control float-right" placeholder="Search" value="{{ request()->get('name') }}">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <br>
                 <div class="container text-center">
@@ -64,7 +69,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{ $categories->links() }}
+                            {{ $categories->appends($_GET)->links() }}
                         </div>
                     </div>
                 </div>
