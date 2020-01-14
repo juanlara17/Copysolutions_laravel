@@ -9,6 +9,10 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -42,6 +46,12 @@ class CategoryController extends Controller
         $cat->save();*/
 
         //return Category::create($request->all());
+
+        $request->validate([
+            'name' => 'required|max:50|unique:categories,name',
+            'slug' => 'required|max:50|unique:categories,slug',
+            'description' => 'max:50',
+        ]);
         Category::create($request->all());
 
         return redirect()->route('admin.category.index')->with('message',
@@ -80,6 +90,12 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $cat = Category::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|max:50|unique:categories,name',$cat->id,
+            'slug' => 'required|max:50|unique:categories,slug',$cat->id,
+            'description' => 'max:50',$cat->id
+        ]);
         /*$cat->name          = $request->name;
         $cat->slug          = $request->slug;
         $cat->description   = $request->description;

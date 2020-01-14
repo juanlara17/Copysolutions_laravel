@@ -30,7 +30,7 @@ Route::get('admin', function () {
 Route::resource('admin/category', 'Admin\CategoryController')->names('admin.category');
 
 Route::get('cancel/{route}', function ($route) {
-    return redirect()->route('admin.category.index')->with('cancel',
+    return redirect()->route($route)->with('cancel',
         'Record cancel');
 })->name('cancel');
 
