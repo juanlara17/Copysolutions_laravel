@@ -34,6 +34,7 @@
                                     <th scope="col">No</th>
                                     <th scope="col"><span>Edit</span></th>
                                     <th scope="col"><span>Delete</span></th>
+                                    <th scope="col"><span>Image</span></th>
                                     <th scope="col"><span>Name</span></th>
                                     <th scope="col"><span>Slug</span></th>
                                     <th scope="col"><span>Description</span></th>
@@ -54,14 +55,21 @@
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
+                                        <td><img src="{{ $product->image }}" alt="" width="40"></td>
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->slug }}</td>
                                         <td>{{ $product->description }}</td>
                                         <td>{{ $product->created_at }}</td>
                                         <td>{{ $product->updated_at }}</td>
-                                        <td><a class="btn btn-default" href="{{route('admin.product.show', $product)}}">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
+                                        <td>
+                                            <div class="card card-secondary">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Bootstrap Switch</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
