@@ -34,6 +34,11 @@ Route::get('cancel/{route}', function ($route) {
         'Record cancel');
 })->name('cancel');
 
+/***** Resource Product *****/
+Route::resource('admin/product', 'Admin\ProductController')->names('admin.product');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

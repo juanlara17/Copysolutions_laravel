@@ -794,7 +794,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    <script src="{{ asset('js/app_admin.js.js') }}"></script>
+    <script src="{{ asset('js/app_admin.js') }}"></script>
     <!-- jQuery -->
     <script src="http://127.0.0.1:8000/adminlte/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
