@@ -793,7 +793,7 @@
         </aside>
         <!-- /.control-sidebar -->
     </div>
-    <script src="{{ asset('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+{{--    <script src="{{ asset('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>--}}
     <!-- ./wrapper -->
     <script src="{{ asset('js/app_admin.js') }}"></script>
     <!-- jQuery -->
