@@ -19,7 +19,7 @@
                     <!-- SELECT2 EXAMPLE -->
                     <div class="card card-success">
                         <div class="card-header">
-                            <h3 class="card-title">Data automatic</h3>
+                            <h3 class="card-title">Data Automatic</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -50,7 +50,7 @@
                     <!-- /.card -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Product detail</h3>
+                            <h3 class="card-title">Product Detail</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -108,7 +108,7 @@
                     <!-- /.card -->
                     <div class="card card-success">
                         <div class="card-header">
-                            <h3 class="card-title">Price section</h3>
+                            <h3 class="card-title">Price Section</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -120,8 +120,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input class="form-control" type="number" id="oldprice"
-                                                   name="oldprecio" min="0" value="0" step=".01">
+                                            <input class="form-control" type="number" id="price_old"
+                                                   name="price_old" min="0" value="0" step=".01">
                                         </div>
                                     </div>
                                     <!-- /.form-group -->
@@ -129,12 +129,12 @@
                                 <!-- /.col -->
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Precio actual</label>
+                                        <label>Current Price</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input class="form-control" type="number" id="precioactual" name="precioactual"
+                                            <input class="form-control" type="number" id="price" name="price"
                                                    min="0" value="0" step=".01">
                                         </div>
                                         <br>
@@ -145,10 +145,10 @@
                                 <!-- /.col -->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Porcentaje de descuento</label>
+                                        <label>Promo Price</label>
                                         <div class="input-group">
-                                            <input class="form-control" type="number" id="porcentajededescuento"
-                                                   name="porcentajededescuento" step="any" min="0" min="100" value="0">
+                                            <input class="form-control" type="number" id="percent_promo"
+                                                   name="percent_promo" step="any" min="0" min="100" value="0">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">%</span>
                                             </div>
@@ -176,19 +176,19 @@
                         <div class="col-md-6">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Descripciones del product</h3>
+                                    <h3 class="card-title">Product Description</h3>
                                 </div>
                                 <div class="card-body">
                                     <!-- Date dd/mm/yyyy -->
                                     <div class="form-group">
-                                        <label>Descripción corta:</label>
-                                        <textarea class="form-control" name="descripcion_corta" id="descripcion_corta"
+                                        <label>Short Description</label>
+                                        <textarea class="form-control" name="description" id="description"
                                                   rows="3"></textarea>
                                     </div>
                                     <!-- /.form group -->
                                     <div class="form-group">
-                                        <label>Descripción larga:</label>
-                                        <textarea class="form-control" name="descripcion_larga" id="descripcion_larga"
+                                        <label>Large Description</label>
+                                        <textarea class="form-control" name="description" id="description"
                                                   rows="5"></textarea>
                                     </div>
                                 </div>
@@ -200,19 +200,19 @@
                         <div class="col-md-6">
                             <div class="card card-info">
                                 <div class="card-header">
-                                    <h3 class="card-title">Especificaciones y otros datos</h3>
+                                    <h3 class="card-title">Specifications / Interest Data</h3>
                                 </div>
                                 <div class="card-body">
                                     <!-- Date dd/mm/yyyy -->
                                     <div class="form-group">
-                                        <label>Especificaciones:</label>
-                                        <textarea class="form-control" name="especificaciones" id="especificaciones"
+                                        <label>Specifications</label>
+                                        <textarea class="form-control" name="extract" id="extract"
                                                   rows="3"></textarea>
                                     </div>
                                     <!-- /.form group -->
                                     <div class="form-group">
-                                        <label>Datos de interes:</label>
-                                        <textarea class="form-control" name="datos_de_interes" id="datos_de_interes"
+                                        <label>Interest Data</label>
+                                        <textarea class="form-control" name="extract" id="extract"
                                                   rows="5"></textarea>
                                     </div>
                                 </div>
@@ -225,13 +225,13 @@
                     <!-- /.row -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Imagenes</h3>
+                            <h3 class="card-title">Images</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="archivosimagenes">Subir varias imagenes</label>
-                                <input type="file" class="form-control-file" id="archivosimagenes[]" multiple
+                                <label for="image">Load images</label>
+                                <input type="file" class="form-control-file" id="image[]" multiple
                                        accept="image/*">
                             </div>
                         </div>
@@ -242,15 +242,15 @@
                     <!-- /.card -->
                     <div class="card card-danger">
                         <div class="card-header">
-                            <h3 class="card-title">Administración</h3>
+                            <h3 class="card-title">Administration</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Estado</label>
-                                        <input class="form-control" type="text" id="estado" name="estado" value="Nuevo">
+                                        <label>State</label>
+                                        <input class="form-control" type="text" id="state" name="state" value="Nuevo">
                                     </div>
                                     <!-- /.form-group -->
                                 </div>
@@ -259,16 +259,16 @@
                                     <!-- checkbox -->
                                     <div class="form-group clearfix">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="activo" name="activo">
-                                            <label class="custom-control-label" for="activo">Activo</label>
+                                            <input type="checkbox" class="custom-control-input" id="active" name="active">
+                                            <label class="custom-control-label" for="active">Active</label>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" id="sliderprincipal"
-                                                   name="sliderprincipal">
-                                            <label class="custom-control-label" for="sliderprincipal">Aparece en el Slider
+                                            <input type="checkbox" class="custom-control-input" id="slide_principal"
+                                                   name="slide_principal">
+                                            <label class="custom-control-label" for="slide_principal">Show Slide
                                                 principal</label>
                                         </div>
                                     </div>
@@ -278,9 +278,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <a class="btn btn-danger" href="{{ route('cancel','admin.product.index') }}">cancel</a>
-                                        <input
-                                            type="submit" value="Guardar" class="btn btn-primary">
+                                        <a class="btn btn-danger" href="{{ route('cancel','admin.product.index') }}">Cancel</a>
+                                        <input :disabled="disable_button==1"
+                                            type="submit" value="Save" class="btn btn-primary">
                                     </div>
                                     <!-- /.form-group -->
                                 </div>
