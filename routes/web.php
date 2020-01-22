@@ -4,14 +4,13 @@ use App\Image;
 /***** Load Image *****/
 Route::get('/test', function () {
 
-    $product = App\Product::find(3);
+    $image['url'] = 'images/avatar3.png';
 
-    $product->images()->saveMany([
-        new App\Image(['url' => 'images/avatar.png']),
-        new App\Image(['url' => 'images/avatar2.png']),
-        new App\Image(['url' => 'images/avatar3.png']),
-    ]);
-    return $product;
+    $user = App\User::find(1);
+
+    $user->image()->create($image);
+
+    return $user;
  });
 
 
