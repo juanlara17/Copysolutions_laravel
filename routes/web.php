@@ -6,6 +6,9 @@ Route::get('/test', function () {
 
     $user = App\User::find(1);
 
+    $user->image->url = 'images/avatar2.png';
+
+    $user->push();
     return $user->image;
  });
 
