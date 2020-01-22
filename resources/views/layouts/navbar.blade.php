@@ -125,7 +125,7 @@
                         <nav>
                             <ul class="nav topnav">
                                 <li class="dropdown active">
-                                    <a href="index.html">Home </a>
+                                    <a href="{{ route('index') }}">Home </a>
                                 </li>
                                 <li>
                                     <a href="#">About Us</a>
@@ -149,7 +149,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact </a>
+                                    <a href="{{ route('contact') }}">Contact </a>
                                 </li>
                             </ul>
                         </nav>

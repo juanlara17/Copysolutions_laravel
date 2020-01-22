@@ -1,6 +1,5 @@
 @extends('pages.portfolio.layout')
 
-
 @section('content')
     <section id="inner-headline">
         <div class="container">

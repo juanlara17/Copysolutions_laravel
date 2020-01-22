@@ -1,9 +1,9 @@
 /*@import url('google-code-prettify/prettify.css');*/
 
 @import url('font-awesome.css');
-
+@import url('custom-fonts.css');
 @import url('overwrite.css');
-/*@import url('animate.css');*/
+@import url('animate.css');
 
 /* ===================================
 1. General
@@ -93,6 +93,162 @@ img.img-polaroid {
 .img-box {
     max-width: 100%;
 }
+
+/* ===================================
+10. Inner - Section: page headline
+==================================== */
+
+#inner-headline {
+    background: #252525;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: #fefefe;
+}
+
+#inner-headline .inner-heading h2 {
+    color: #fff;
+    margin: 20px 0 0 0;
+}
+
+/* --- breadcrumbs --- */
+
+#inner-headline ul.breadcrumb {
+    margin: 30px 0 0;
+    float: right;
+}
+
+#inner-headline ul.breadcrumb li {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#inner-headline ul.breadcrumb li {
+    font-size: 13px;
+    color: #ddd;
+}
+
+#inner-headline ul.breadcrumb li i {
+    color: #dedede;
+}
+
+#inner-headline ul.breadcrumb li a {
+    color: #fff;
+}
+
+ul.breadcrumb li a:hover {
+    text-decoration: none;
+}
+
+/* ============================
+11. Forms
+============================= */
+
+/* --- contact form  ---- */
+
+.contactForm input[type="text"], .contactForm input[type="email"] {
+    width: 100%;
+    min-height: 40px;
+    padding-left: 20px;
+    font-size: 13px;
+    padding-right: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.contactForm textarea {
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 13px;
+    padding-right: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.validation {
+    color: red;
+    display:none;
+    margin: 0 0 20px;
+    font-weight:400;
+    font-size:13px;
+}
+
+#sendmessage {
+    color: green;
+    border:1px solid green;
+    display:none;
+    text-align:center;
+    padding:15px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+#errormessage {
+    color: red;
+    display:none;
+    border:1px solid red;
+    text-align:center;
+    padding:15px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+#sendmessage.show, #errormessage.show, .show {
+    display:block;
+}
+
+/* Google Map */
+#google-map {
+    height: 400px;
+    margin-bottom: 40px;
+}
+
+/* --- comment form ---- */
+
+form#commentform input[type="text"] {
+    width: 100%;
+    min-height: 40px;
+    padding-left: 20px;
+    font-size: 13px;
+    padding-right: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    border-radius: 2px 2px 2px 2px;
+}
+
+form#commentform textarea {
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 13px;
+    padding-right: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    border-radius: 2px 2px 2px 2px;
+}
+
+/* --- search form --- */
+
+.search {
+    float: right;
+    margin: 35px 0 0;
+    padding-bottom: 0;
+}
+
+#inner-headline form.input-append {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* ===============================
 13. Elements

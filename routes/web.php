@@ -1,25 +1,45 @@
 <?php
+use App\Image;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+/***** Load Image *****/
+Route::get('/test', function () {
+
+    $user = App\User::find(1);
+    $image = $user->image;
+    if ($image) {
+        echo 'Have a image';
+    }else{
+        echo 'Dont have a image';
+    }
+    return $image;
+ });
+
+
+Route::get('/results', function () {
+
+    $image = Image::orderBy('id', 'Desc')->get();
+});
+
+
+Route::get('/', function () {
+
+});
+
 
 /***** Official Page  *****/
 Route::get('/', function () {
     return view('pages.index');
-});
+})->name('index');
 
-/***** Test Page *****/
-Route::get('api', function () {
-    return view('pages.test');
-});
+/***** Contact *****/
+Route::get('contact', function () {
+    return view('pages.contact');
+})->name('contact');
+
+/***** Portfolio *****/
+Route::get('catalog', function () {
+    return view('pages.portfolio.portfolio');
+})->name('catalog');
 
 /***** Panel Admin *****/
 Route::get('admin', function () {
@@ -37,9 +57,9 @@ Route::get('cancel/{route}', function ($route) {
 /***** Resource Product *****/
 Route::resource('admin/product', 'Admin\ProductController')->names('admin.product');
 
-
-
+/***** Authentication ******/
 Auth::routes();
 
+/***** Home Page *****/
 Route::get('/home', 'HomeController@index')->name('home');
 
