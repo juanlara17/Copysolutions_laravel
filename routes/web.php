@@ -4,20 +4,20 @@ use App\Image;
 /***** Load Image *****/
 Route::get('/test', function () {
 
+    $image = new Image(['url' => 'images/a.png']);
+
     $user = App\User::find(1);
-    $image = $user->image;
-    if ($image) {
-        echo 'Have a image';
-    }else{
-        echo 'Dont have a image';
-    }
-    return $image;
+    $user->image()->save($image);
+//    dd($user);
+
+    return $user;
  });
 
 
 Route::get('/results', function () {
 
     $image = Image::orderBy('id', 'Desc')->get();
+    return $image;
 });
 
 
