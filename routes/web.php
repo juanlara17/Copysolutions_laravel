@@ -4,13 +4,9 @@ use App\Image;
 /***** Load Image *****/
 Route::get('/test', function () {
 
-    $image['url'] = 'images/avatar3.png';
-
     $user = App\User::find(1);
 
-    $user->image()->create($image);
-
-    return $user;
+    return $user->image;
  });
 
 
