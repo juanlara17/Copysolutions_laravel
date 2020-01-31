@@ -1,24 +1,21 @@
 <?php
 use App\Image;
+use App\Product;
+use App\User;
 
 /***** Load Image *****/
 Route::get('/test', function () {
 
-    $user = App\User::find(1);
-
-    $user->image->url = 'images/avatar2.png';
-
-    $user->push();
-    return $user->image;
+    $product = Product::find(3);
+    $product->images()->delete();
+    return $product;
  });
 
 
 Route::get('/results', function () {
-
-    $image = Image::orderBy('id', 'Desc')->get();
-    return $image;
+    $user = App\User::find(1);
+    return $user->image->url;
 });
-
 
 Route::get('/', function () {
 
@@ -36,9 +33,9 @@ Route::get('contact', function () {
 })->name('contact');
 
 /***** Portfolio *****/
-Route::get('catalog', function () {
+Route::get('portfolio', function () {
     return view('pages.portfolio.portfolio');
-})->name('catalog');
+})->name('portfolio');
 
 /***** Panel Admin *****/
 Route::get('admin', function () {

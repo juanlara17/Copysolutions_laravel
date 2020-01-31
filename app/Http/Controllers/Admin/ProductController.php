@@ -44,14 +44,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        $data = [
+        $request->validate([
+            'name' => 'required|unique:products,name',
+            'slug' => 'required|unique:products,slug',
+            'images.*' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+        ]);
+
+        /*$data = [
             'name' => $request->get('name'),
             'slug' => Str::slug($request->get('name')),
             'description' => $request->get('description'),
             'extract' => $request->get('extract'),
             'price_old' => $request->get('price_old'),
             'price' => $request->get('price'),
-            /*'image' => $request->get('image'),*/
+            /*'image' => $request->get('image'),
             'category_id' => $request->get('category_id'),
             'visits' => $request->get('visits'),
             'sale' => $request->get('sales'),
@@ -60,7 +66,7 @@ class ProductController extends Controller
             'state' => $request->get('state'),
             'visible' => $request->has('active') ? 1 : 0,
             'slide_principal' => $request->has('slide_principal') ? 1 : 0,
-        ];
+        ];*/
 
 
     /*    $product = New Product;

@@ -230,9 +230,18 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="image">Load images</label>
-                                <input type="file" class="form-control-file" id="image[]" multiple
+                                <label for="images">Add images</label>
+                                <input type="file" class="form-control-file" id="images[]" name="images[]" multiple
                                        accept="image/*">
+
+                                <div class="description">
+                                    Limited number can be load
+                                    <br>
+                                    Limite 2048MB
+                                    <br>
+                                    Format: jpeg, png, jpg, gif, svg.
+                                    <br>
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->

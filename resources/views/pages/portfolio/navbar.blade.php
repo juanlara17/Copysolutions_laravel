@@ -124,14 +124,14 @@
                     <div class="navigation">
                         <nav>
                             <ul class="nav topnav">
-                                <li class="dropdown active">
+                                <li class="dropdown">
                                     <a href="{{ route('index') }}">Home </a>
                                 </li>
                                 <li>
                                     <a href="#">About Us</a>
                                 </li>
-                                <li class="dropdown">
-                                    <a href="#portfolio">Porfolio <i class="icon-angle-down"></i></a>
+                                <li class="dropdown active">
+                                    <a href="/catalog">Porfolio <i class="icon-angle-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{ route('portfolio') }}">Products</a></li>
                                     </ul>

@@ -33,7 +33,7 @@
         @include('pages.wrapper')
 
         {{-- NAVBAR --}}
-        @include('layouts.navbar')
+        @include('pages.portfolio.navbar')
 
 
         @yield('content')
