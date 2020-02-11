@@ -1,12 +1,14 @@
 @extends('admin.admin')
 
-@section('title', 'Product')
+@section('title', 'Products')
 
 @section('breadcrumb')
     <li class="breadcrumb-item active">@yield('title')</li>
 @endsection
 
 @section('content')
+
+    {{ $products[5] }}
 
     <div id="confirmdelete" class="row">
         <span v-show="false" id="urlbase"> {{ route('admin.product.index') }}</span>
@@ -36,11 +38,11 @@
                                     <th scope="col"><span>Delete</span></th>
                                     <th scope="col"><span>Image</span></th>
                                     <th scope="col"><span>Name</span></th>
-                                    <th scope="col"><span>Slug</span></th>
-                                    <th scope="col"><span>Description</span></th>
+                                    <th scope="col"><span>State</span></th>
+                                    <th scope="col"><span>Visible</span></th>
+                                    <th scope="col"><span>Slider</span></th>
                                     <th scope="col"><span>Created</span></th>
                                     <th scope="col"><span>Updated</span></th>
-                                    <th colspan="3">Detail</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -55,13 +57,22 @@
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
-                                        <td><img src="{{ $product->image }}" alt="" width="40"></td>
+                                        <td>
+                                            @if( $product->images->count()<=0 )
+                                                <img src="/images/avatar.png" alt="image_product" style="height: 70px">
+                                            @else
+                                                <img src="{{ $product->images->random()->url }}" alt="image_product" style="height: 70px" >
+                                            @endif
+                                        </td>
+
+                                        {{--<td><img src="{{ $product->image }}" alt="image_product" width="40"></td>--}}
                                         <td>{{ $product->name }}</td>
-                                        <td>{{ $product->slug }}</td>
-                                        <td>{{ $product->description }}</td>
+                                        <td>{{ $product->state }}</td>
+                                        <td>{{ $product->visible }}</td>
+                                        <td>{{ $product->slide_principal }}</td>
                                         <td>{{ $product->created_at }}</td>
                                         <td>{{ $product->updated_at }}</td>
-                                        <td>
+                                        {{--<td>
                                             <div class="card card-secondary">
                                                 <div class="card-header">
                                                     <h3 class="card-title">Bootstrap Switch</h3>
@@ -70,7 +81,7 @@
                                                     <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td>--}}
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -56,6 +56,8 @@ Route::resource('admin/product', 'Admin\ProductController')->names('admin.produc
 /***** Authentication ******/
 Auth::routes();
 
+Route::post('/user/create', 'Admin\UserController@store')->name('create.user');
+
 /***** Home Page *****/
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 

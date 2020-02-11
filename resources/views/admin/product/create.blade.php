@@ -81,7 +81,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Category</label>
-                                        <select name="category_id" class="form-control select2" style="width: 100%;">
+                                        <select name="category_id"  id="category_id" class="form-control" style="width: 100%;">
                                             @foreach($categories as $category)
                                                 @if ($loop->first)
                                                     <option value="{{ $category->id }}"
@@ -120,7 +120,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input class="form-control" type="number" id="price_old"
+                                            <input v-model="price_old" class="form-control" type="number" id="price_old"
                                                    name="price_old" min="0" value="0" step=".01">
                                         </div>
                                     </div>
@@ -134,11 +134,12 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input class="form-control" type="number" id="price" name="price"
+                                            <input v-model="price" class="form-control" type="number" id="price" name="price"
                                                    min="0" value="0" step=".01">
                                         </div>
                                         <br>
                                         <span id="promo"></span>
+                                        @{{ generardescuento }}
                                     </div>
                                     <!-- /.form-group -->
                                 </div>
@@ -147,17 +148,18 @@
                                     <div class="form-group">
                                         <label>Promo Price</label>
                                         <div class="input-group">
-                                            <input class="form-control" type="number" id="percent_promo"
-                                                   name="percent_promo" step="any" min="0" min="100" value="0">
+                                            <input v-model="promo_price" v-model class="form-control" type="number" id="percent_promo"
+                                                   name="percent_promo" step="any" min="0" max="100" value="0">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="progress">
-                                            <div id="barraprogreso" class="progress-bar" role="progressbar"
-                                                 style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                                                0%
+                                            <div id="progressbar" class="progress-bar" role="progressbar"
+                                                 v-bind:style="{width: promo_price + '%'}"
+                                                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                @{{ promo_price }} %
                                             </div>
                                         </div>
                                     </div>
@@ -182,13 +184,13 @@
                                     <!-- Date dd/mm/yyyy -->
                                     <div class="form-group">
                                         <label>Short Description</label>
-                                        <textarea class="form-control" name="description" id="description"
+                                        <textarea class="form-control ckeditor" name="description" id="description"
                                                   rows="3"></textarea>
                                     </div>
                                     <!-- /.form group -->
                                     <div class="form-group">
                                         <label>Large Description</label>
-                                        <textarea class="form-control" name="description" id="description"
+                                        <textarea class="form-control ckeditor" name="description" id="description"
                                                   rows="5"></textarea>
                                     </div>
                                 </div>
@@ -206,13 +208,13 @@
                                     <!-- Date dd/mm/yyyy -->
                                     <div class="form-group">
                                         <label>Specifications</label>
-                                        <textarea class="form-control" name="extract" id="extract"
+                                        <textarea class="form-control ckeditor" name="extract" id="extract"
                                                   rows="3"></textarea>
                                     </div>
                                     <!-- /.form group -->
                                     <div class="form-group">
                                         <label>Interest Data</label>
-                                        <textarea class="form-control" name="extract" id="extract"
+                                        <textarea class="form-control ckeditor" name="extract" id="extract"
                                                   rows="5"></textarea>
                                     </div>
                                 </div>

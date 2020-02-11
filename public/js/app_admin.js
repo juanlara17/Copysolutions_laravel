@@ -14777,7 +14777,14 @@ var app = new Vue({
     div_mensaje_slug: 'Existing',
     div_clase_slug: 'badge badge-danger',
     div_aparecer: false,
-    disable_button: 1
+    disable_button: 1,
+
+    /* Product Variables */
+    price_old: 0,
+    price: 0,
+    promo: 0,
+    promo_price: 0,
+    promo_message: '0'
   },
   computed: {
     generarSLug: function generarSLug() {
@@ -14802,6 +14809,47 @@ var app = new Vue({
         return _char[e];
       }).toLowerCase();
       return this.slug; //return this.nombre.trim().replace(/ /g,'-').toLowerCase()
+    },
+    generardescuento: function generardescuento() {
+      if (this.promo_price > 100) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Do not enter a value greater than 100.!'
+        });
+        this.promo_price = 100;
+        this.promo = this.price_old * this.promo_price / 100;
+        this.price = this.price_old - this.promo;
+        this.promo_message = 'This product is free';
+        return this.promo_message;
+      } else if (this.promo_price < 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Do not enter a value less than 0.!'
+        });
+        this.promo_price = 0;
+        this.promo = this.price_old * this.promo_price / 100;
+        this.price = this.price_old - this.promo;
+        this.promo_message = '';
+        return this.promo_message;
+      } else if (this.promo_price > 0) {
+        this.promo = this.price_old * this.promo_price / 100;
+        this.price = this.price_old - this.promo;
+
+        if (this.promo_price >= 100) {
+          this.promo_message = 'This product is free';
+        } else {
+          this.promo_message = 'There is promo of $US' + this.promo;
+        }
+
+        return this.promo_message;
+      } else {
+        this.promo = '';
+        this.price = this.price_old;
+        this.promo_message = '';
+        return this.promo_message;
+      }
     }
   },
   methods: {
