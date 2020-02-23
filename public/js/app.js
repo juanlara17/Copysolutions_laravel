@@ -49800,10 +49800,14 @@ var app = new Vue({
     }
   },
   mounted: function mounted() {
-    if (document.getElementById('nameTemp')) {
-      this.nombre = document.getElementById('nameTemp').innerHTML;
+    if (data.edit == 'Si') {
+      this.nombre = data.datos.name;
+      this.price_old = data.datos.price_old;
+      this.promo_price = data.datos.promo_percent;
       this.disable_button = 0;
     }
+
+    console.log(data);
   }
 });
 

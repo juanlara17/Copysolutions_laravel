@@ -11,17 +11,14 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="/adminlte/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    @yield('styles')
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
-    <script src="{{ asset('adminlte/ckeditor/ckeditor.js') }}"></script>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    {{--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>--}}
 </head>
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
@@ -797,13 +794,9 @@
         </aside>
         <!-- /.control-sidebar -->
     </div>
-{{--    <script src="{{ asset('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>--}}
-    <!-- ./wrapper -->
-    <script src="{{ asset('js/app_admin.js') }}"></script>
     <!-- jQuery -->
     <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-
     <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
@@ -811,8 +804,17 @@
     <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- Select2 -->
-    <script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
-    <script>
+    <script src="{{ asset('js/app_admin.js') }}" defer></script>
+    @yield('scripts')
+    {{--<script>
+        window.data = {
+            edit: 'Si',
+            datos: {
+                "name" : '$product->name',
+                "price_old": "$product->price_old",
+                "promo_percent": "$product->percent_promo"
+            }
+        }
         $(function () {
             //Initialize Select2 Elements
             $('#category_id').select2()
@@ -822,6 +824,6 @@
                 theme: 'bootstrap4'
             })
         });
-    </script>
+    </script>--}}
 </body>
 </html>

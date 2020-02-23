@@ -6,8 +6,7 @@ use App\User;
 /***** Load Image *****/
 Route::get('/test', function () {
 
-    $product = Product::find(3);
-    $product->images()->delete();
+    $product = Product::with('images', 'category')->orderBy('id','desc')->get();
     return $product;
  });
 
