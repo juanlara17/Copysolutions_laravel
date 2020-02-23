@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::apiResource('store','API\StoreController')->names('api.store');
 
 Route::apiResource('product','API\ProductController')->names('api.product');
+
+Route::delete('/deleteimage/{id}', 'API\ProductController@deleteImage')->name('api.deleteimage');

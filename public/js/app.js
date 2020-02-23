@@ -49773,6 +49773,32 @@ var app = new Vue({
     }
   },
   methods: {
+    deleteImageProduct: function deleteImageProduct(image) {
+      Swal.fire({
+        title: 'Are you sure delete image ' + image.id + '?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          /* Elimar imagen de la base de datos */
+          var url = '/api/deleteimage/' + image.id;
+          axios["delete"](url).then(function (response) {
+            console.log(response.data);
+          });
+          /* Eliminar la imagen de la galeria*/
+
+          var element = document.getElementById('idimage-' + image.id);
+          element.parentNode.removeChild(element);
+          /*console.log(element);*/
+
+          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        }
+      });
+    },
     getproduct: function getproduct() {
       var _this = this;
 
@@ -49805,9 +49831,8 @@ var app = new Vue({
       this.price_old = data.datos.price_old;
       this.promo_price = data.datos.promo_percent;
       this.disable_button = 0;
-    }
+    } // console.log(data);
 
-    console.log(data);
   }
 });
 

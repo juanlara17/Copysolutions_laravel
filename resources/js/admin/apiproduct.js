@@ -81,6 +81,34 @@ const app = new Vue({
         }
     },
     methods: {
+        deleteImageProduct(image){
+            Swal.fire({
+                title: 'Are you sure delete image ' + image.id + '?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    /* Elimar imagen de la base de datos */
+                    let url = '/api/deleteimage/' + image.id;
+                    axios.delete(url).then(response => {
+                        console.log(response.data)
+                    });
+                    /* Eliminar la imagen de la galeria*/
+                    var element = document.getElementById('idimage-' + image.id);
+                    element.parentNode.removeChild(element);
+                    /*console.log(element);*/
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            });
+        },
         getproduct() {
             if (this.slug) {
                 let url = '/api/product/' + this.slug;
@@ -111,7 +139,6 @@ const app = new Vue({
             this.promo_price = data.datos.promo_percent;
             this.disable_button = 0;
         }
-
-        console.log(data);
+        // console.log(data);
     }
 });

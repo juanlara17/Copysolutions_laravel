@@ -10,6 +10,8 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="/adminlte/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="/adminlte/plugins/ekko-lightbox/ekko-lightbox.css">
 @endsection
 @section('content')
     <div id="apiproduct">
@@ -258,6 +260,31 @@
                         <div class="card-footer">
                         </div>
                     </div>
+                    {{--  Image Gallery  --}}
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <div class="card-title">
+                                Gallery
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                @foreach($product->images as $image)
+                                    <div id="idimage-{{ $image->id }}" class="col-sm-2">
+                                        <a href="{{ $image->url }}" data-toggle="lightbox" data-title="{{ $image->id }}" data-gallery="gallery">
+                                            <img src="{{ $image->url }}" class="img-fluid mb-2" alt="white sample" style="width: 150px; height: 150px"/>
+                                        </a>
+                                        <hr>
+                                        <a href="{{ $image->url }}" class="btn btn-danger"
+                                            v-on:click.prevent="deleteImageProduct({{ $image }})"
+                                            >
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                     <!-- /.card -->
                     <div class="card card-danger">
                         <div class="card-header">
@@ -329,6 +356,8 @@
 @section('scripts')
     <script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
     <script src="{{ asset('adminlte/ckeditor/ckeditor.js') }}"></script>
+    <!-- Ekko Lightbox -->
+    <script src="/adminlte/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
     <script>
         window.data = {
             edit: 'Si',
@@ -337,15 +366,24 @@
                 "price_old": "{{ $product->price }}",
                 "promo_percent": "{{ $product->percent_promo }}"
             }
-        }
+        };
+
         $(function () {
+
             //Initialize Select2 Elements
             $('#category_id').select2()
 
             //Initialize Select2 Elements
             $('.select2bs4').select2({
                 theme: 'bootstrap4'
-            })
+            });
+            //Use Lightbox
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
         });
     </script>
 @endsection

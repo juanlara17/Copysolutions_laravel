@@ -8,6 +8,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
 class ProductController extends Controller
 {
     /**
@@ -165,4 +166,6 @@ class ProductController extends Controller
     {
         //
     }
+
+
 }
