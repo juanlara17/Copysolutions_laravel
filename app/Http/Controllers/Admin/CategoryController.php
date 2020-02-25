@@ -39,14 +39,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        /*$cat = new Category();
-        $cat->name          = $request->nombre;
-        $cat->slug          = $request->slug;
-        $cat->description   = $request->descripcion;
-        $cat->save();*/
-
-        //return Category::create($request->all());
-
         $request->validate([
             'name' => 'required|max:50|unique:categories,name',
             'slug' => 'required|max:50|unique:categories,slug',

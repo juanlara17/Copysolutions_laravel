@@ -27,7 +27,7 @@ const app = new Vue({
     methods: {
         getCategory() {
             if (this.slug) {
-                let url = '/api/store/' + this.slug;
+                let url = '/api/category/' + this.slug;
                 axios.get(url).then(response => {
                     this.div_mensaje_slug = response.data;
                     // console.log(this.div_mensaje_slug);

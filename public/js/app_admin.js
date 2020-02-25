@@ -14729,7 +14729,7 @@ var app = new Vue({
       var _this = this;
 
       if (this.slug) {
-        var url = '/api/store/' + this.slug;
+        var url = '/api/category/' + this.slug;
         axios.get(url).then(function (response) {
           _this.div_mensaje_slug = response.data; // console.log(this.div_mensaje_slug);
 

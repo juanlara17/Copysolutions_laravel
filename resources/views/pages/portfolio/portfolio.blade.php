@@ -45,7 +45,7 @@
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
                                     <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/portfolio/business-card.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                    <img src="{{ asset('images/portfolio/business-card.jpg') }}"  alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
                                 </li>
                                 <!-- End Item Project -->
                                 <!-- Item Project and Filter Name -->
@@ -62,12 +62,12 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span4 photography" data-id="id-2" data-type="graphic">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{{ asset('images/portfolio/banner.png') }}">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{{ asset('images/portfolio/image-08.jpg') }}">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
                                     <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/portfolio/banner.png') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                    <img src="{{ asset('images/portfolio/image-08.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
                                 </li>
                                 <!-- End Item Project -->
                                 <!-- Item Project and Filter Name -->
@@ -82,7 +82,7 @@
                                 </li>
                                 <!-- End Item Project -->
                                 <!-- Item Project and Filter Name -->
-                                <li class="item-thumbs span4 photography" data-id="id-4" data-type="graphic">
+                                <li class="item-thumbs span4 photography" data-id="id-4" data-type="graphic" >
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
                                     <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-05-full.jpg">
                                         <span class="overlay-img"></span>
@@ -93,7 +93,7 @@
                                 </li>
                                 <!-- End Item Project -->
                                 <!-- Item Project and Filter Name -->
-                                <li class="item-thumbs span4 photography" data-id="id-5" data-type="icon">
+                                <li class="item-thumbs span4 photography" data-id="id-5" data-type="icon" >
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
                                     <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-06-full.jpg">
                                         <span class="overlay-img"></span>
@@ -104,7 +104,7 @@
                                 </li>
                                 <!-- End Item Project -->
                                 <!-- Item Project and Filter Name -->
-                                <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
+                                <li class="item-thumbs span4 design" data-id="id-0" data-type="web" >
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
                                     <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-07-full.jpg">
                                         <span class="overlay-img"></span>
@@ -115,7 +115,7 @@
                                 </li>
                                 <!-- End Item Project -->
                                 <!-- Item Project and Filter Name -->
-                                <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
+                                <li class="item-thumbs span4 design" data-id="id-0" data-type="web" >
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
                                     <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-08-full.jpg">
                                         <span class="overlay-img"></span>

@@ -28,7 +28,7 @@ class CreateProductsTable extends Migration
             $table->string('state');
             $table->bigInteger('visits')->unsigned()->default(0);
             $table->bigInteger('sales')->unsigned()->default(0);
-            $table->bigInteger('category_id')->unsigned()->default(0);
+            $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories');

@@ -13,7 +13,6 @@
         <form action="{{ route('admin.category.store') }}" method="POST">
             @csrf
 
-
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
