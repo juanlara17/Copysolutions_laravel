@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Image;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 
@@ -247,7 +249,16 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::with('images')->findOrFail($id);
+        foreach ($product->images as $image) {
+            $urlFile = substr($image->url, 1);
+            File::delete($urlFile);
+            $image->delete();
+        }
+
+        $product->delete();
+
+        return redirect()->route('admin.product.index')->with('message', 'Record deleted successfully');
     }
 
     public function state_products()

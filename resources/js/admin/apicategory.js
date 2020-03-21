@@ -39,6 +39,15 @@ const app = new Vue({
                         this.disable_button = 1;
                     }
                     this.div_aparecer = true;
+
+                    if (document.getElementById('nameTemp')) {
+                        if (document.getElementById('nameTemp').innerHTML === this.nombre) {
+                            this.disable_button = 0;
+                            this.div_mensaje_slug = '';
+                            this.div_clase_slug = '';
+                            this.div_aparecer = false;
+                        }
+                    }
                 });
             } else {
                 this.div_clase_slug = 'badge badge-success';
@@ -46,6 +55,7 @@ const app = new Vue({
                 this.disable_button = 1;
                 this.div_aparecer = true;
             }
+
         }
     },
     mounted() {

@@ -14,7 +14,7 @@
             @csrf
             @method('PUT')
 
-            <div id="nameTemp" v-show="false">{{ $cat->name }}</div>
+            <span id="nameTemp" v-show="false">{{ $cat->name }}</span>
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">

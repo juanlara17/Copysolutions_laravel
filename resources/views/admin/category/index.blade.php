@@ -48,13 +48,11 @@
                                         <th scope="row"></th>
                                         <td><a href="{{ route('admin.category.edit', $category->slug) }}" class="btn btn-primary"><i class="fa fa-pen-square"></i></a></td>
                                         <td>
-                                            {{--{!! Form::open([ 'route' => ['admin.category.destroy', $category]]) !!}--}}
                                             <input type="hidden" name="_method" value="DELETE">
                                             <a href="{{ route('admin.category.index') }}" class="btn btn-danger"
                                                v-on:click.prevent="get_delete({{ $category->id }})">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                            {{--{!! Form::close() !!}--}}
                                         </td>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
