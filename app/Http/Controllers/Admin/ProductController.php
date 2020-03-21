@@ -31,8 +31,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name')->get();
+        $states_product = $this->state_products();
 
-        return view('admin.product.create',compact('categories'));
+        return view('admin.product.create',compact('categories', 'states_product'));
     }
 
     /**
@@ -141,7 +142,12 @@ class ProductController extends Controller
         $product = Product::with('images', 'category')->where('slug', $slug)->firstOrFail();
 
         $categories = Category::orderBy('name')->get();
-        return view('admin.product.edit', compact('product','categories'));
+
+        $states_product = $this->state_products();
+
+//        dd($state_product);
+
+        return view('admin.product.edit', compact('product','categories', 'states_product'));
     }
 
     /**
@@ -153,7 +159,80 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:products,name,'.$id,
+            'slug' => 'required|unique:products,slug,'.$id,
+            'images.*' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+        ]);
+
+        /*$data = [
+            'name' => $request->get('name'),
+            'slug' => Str::slug($request->get('name')),
+            'description' => $request->get('description'),
+            'extract' => $request->get('extract'),
+            'price_old' => $request->get('price_old'),
+            'price' => $request->get('price'),
+            'category_id' => $request->get('category_id'),
+            'visits' => $request->get('visits'),
+            'sale' => $request->get('sales'),
+            'quantity' => $request->get('quantity'),
+            'percent_promo' => $request->get('percent_promo'),
+            'state' => $request->get('state'),
+            'visible' => $request->has('active') ? 1 : 0,
+            'slide_principal' => $request->has('slide_principal') ? 1 : 0,
+        ];*/
+
+        /***** Tratamiento de la imagenes para guardar las url's en database *****/
+        $product = Product::findOrFail($id);
+
+        $urlImages = [];
+
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+
+            foreach ($images as $image) {
+
+                $name = time().'_'.$image->getClientOriginalName();
+
+                $route = public_path().'/images';
+
+                $image->move($route, $name);
+
+                $urlImages[]['url'] = '/images/'.$name;
+            }
+        }
+            $product->visits    = $request->visits;
+            $product->sales     = $request->sales;
+            $product->name      = $request->name;
+            $product->slug      = $request->slug;
+            $product->category_id = $request->category_id;
+            $product->quantity  = $request->quantity;
+            $product->price_old = $request->price_old;
+            $product->price     = $request->price;
+            $product->percent_promo = $request->percent_promo;
+            $product->description = $request->description;
+            $product->extract   = $request->extract;
+            $product->state     = $request->state;
+
+            if ($request->active) {
+                $product->visible = 1;
+            }else{
+                $product->visible = 0;
+            }
+
+            if ($request->slide_principal) {
+                $product->slide_principal = 1;
+            }else{
+                $product->slide_principal = 0;
+            }
+
+//        $product = Product::findOrFail($id)::create($data);
+        $product->save();
+
+        $product->images()->createMany($urlImages);
+
+        return redirect()->route('admin.product.edit', $product->slug)->with('message',
+            'Record update');
     }
 
     /**
@@ -167,5 +246,13 @@ class ProductController extends Controller
         //
     }
 
-
+    public function state_products()
+    {
+        return [
+            '',
+            'New',
+            'Offer',
+            'Popular',
+        ];
+    }
 }

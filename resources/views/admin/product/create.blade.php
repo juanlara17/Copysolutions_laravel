@@ -261,7 +261,16 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>State</label>
-                                        <input class="form-control" type="text" id="state" name="state" value="Nuevo">
+                                        <select name="state"  id="state" class="form-control" style="width: 100%;">
+                                            @foreach($states_product as $state_product)
+                                                @if ($state_product == "New")
+                                                    <option value="{{ $state_product }}"
+                                                            selected="selected">{{ $state_product }}</option>
+                                                @else
+                                                    <option value="{{ $state_product }}">{{ $state_product }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <!-- /.form-group -->
                                 </div>

@@ -13,7 +13,7 @@
         @include('custom.modal_delete')
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="padding-left: 7.5px; padding-right: 7.5px">
                     <a href="{{ route('admin.category.create') }}" class="btn btn-info"><i class="fa fa-plus-circle"></i> Category</a>
                     <form class="float-right">
                         <div class="card-tools input-group input-group-sm" style="width: 150px;">

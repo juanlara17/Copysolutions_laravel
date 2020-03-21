@@ -15,8 +15,9 @@
 @endsection
 @section('content')
     <div id="apiproduct">
-        <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
         <!-- Main content -->
             <section class="content">
@@ -296,7 +297,16 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>State</label>
-                                        <input class="form-control" type="text" id="state" name="state" value="Nuevo" value="{{ $product->state }}">
+                                            <select name="state"  id="state" class="form-control" style="width: 100%;">
+                                                @foreach($states_product as $state_product)
+                                                    @if ($state_product == $product->state)
+                                                        <option value="{{ $state_product }}"
+                                                                selected="selected">{{ $state_product }}</option>
+                                                    @else
+                                                        <option value="{{ $state_product }}">{{ $state_product }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
                                     </div>
                                     <!-- /.form-group -->
                                 </div>

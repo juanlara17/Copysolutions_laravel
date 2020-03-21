@@ -16,3 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 
 mix.js('resources/js/app_admin.js', 'public/js');
+
+mix.browserSync({
+        proxy: 'http://localhost:8000'
+    });

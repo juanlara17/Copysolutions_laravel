@@ -43,7 +43,7 @@ class UserController extends Controller
         ],[
             'name.required' => 'El campo nombre es obligatorio'
         ]);
-//        dd($data);
+        dd($data);
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],

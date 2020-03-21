@@ -1,5 +1,8 @@
 @extends('pages.portfolio.layout')
-
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/portfolio/porftolio.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles/main_styles.css') }}">
+@endsection
 @section('content')
     <section id="inner-headline">
         <div class="container">
@@ -40,12 +43,31 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{{ asset('images/portfolio/business-card.jpg') }}">
+                                    <a data-fancybox-group="gallery" title="Portfolio name" href="{{ asset('images/portfolio/business-card.jpg') }}">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
-                                    <!-- Thumb Image and Description -->
                                     <img src="{{ asset('images/portfolio/business-card.jpg') }}"  alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                    <!-- Thumb Image and Description -->
+                                    <div class="product_info d-flex flex-row align-items-start justify-content-start">
+                                        <div>
+                                            <div>
+                                                <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="ml-auto text-right">
+                                            <div class="product_category">In <a href="category.html">Category</a></div>
+                                            <div class="product_price text-right">$3<span>.99</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="product_buttons">
+                                        <div class="text-right d-flex flex-row align-items-start justify-content-start">
+                                            <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+                                                <div><div><img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt=""><div>+</div></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                                 <!-- End Item Project -->
                                 <!-- Item Project and Filter Name -->
