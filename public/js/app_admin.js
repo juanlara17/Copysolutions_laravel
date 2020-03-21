@@ -14896,6 +14896,13 @@ var app = new Vue({
           }
 
           _this.div_aparecer = true;
+
+          if (data.datos.name === _this.nombre) {
+            _this.disable_button = 0;
+            _this.div_mensaje_slug = '';
+            _this.div_clase_slug = '';
+            _this.div_aparecer = false;
+          }
         });
       } else {
         this.div_clase_slug = 'badge badge-success';
