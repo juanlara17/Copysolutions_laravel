@@ -43,6 +43,7 @@
                                     <th scope="col"><span>Slider</span></th>
                                     <th scope="col"><span>Created</span></th>
                                     <th scope="col"><span>Updated</span></th>
+                                    <th scope="col"><span>Detail</span></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,6 +73,10 @@
                                         <td>{{ $product->slide_principal }}</td>
                                         <td>{{ $product->created_at }}</td>
                                         <td>{{ $product->updated_at }}</td>
+                                        <td><a class="btn btn-default" href="{{route('admin.product.show', $product->slug)}}">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </td>
                                         {{--<td>
                                             <div class="card card-secondary">
                                                 <div class="card-header">

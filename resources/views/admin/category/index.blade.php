@@ -61,7 +61,7 @@
                                         <td>{{ $category->description }}</td>
                                         <td>{{ $category->created_at }}</td>
                                         <td>{{ $category->updated_at }}</td>
-                                        <td><a class="btn btn-default" href="{{route('admin.category.show', $category)}}">
+                                        <td><a class="btn btn-default" href="{{route('admin.category.show', $category->slug)}}">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         </td>

@@ -60,8 +60,7 @@ class CategoryController extends Controller
     {
         $cat = Category::where('slug', $slug)->firstOrFail();
         $editar = 'Si';
-        return redirect()->route('admin.category.show')->with('cat',
-            'editar');
+        return view('admin.category.show', compact('cat'));
     }
 
     /**

@@ -126,9 +126,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $product = Product::with('images', 'category')->where('slug', $slug)->firstOrFail();
+        $categories = Category::orderBy('name')->get();
+        $states_product = $this->state_products();
+
+        return view('admin.product.show', compact('product', 'categories', 'states_product'));
     }
 
     /**
