@@ -6,6 +6,35 @@
     <li class="breadcrumb-item"><a href="{{ route('admin.product.index') }}">Product</a></li>
     <li class="breadcrumb-item active">@yield('title')</li>
 @endsection
+@section('styles')
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/adminlte/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="/adminlte/plugins/ekko-lightbox/ekko-lightbox.css">
+@endsection
+
+@section('scripts')
+
+    <!-- Select2 -->
+    <script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
+
+    <script src="/adminlte/ckeditor/ckeditor.js"></script>
+
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('#category_id').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
+        });
+
+    </script>
+
+@endsection
 
 @section('content')
 
@@ -27,7 +56,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Visits</label>
-                                        <input class="form-control" type="number" id="visits" name="visits">
+                                        <input class="form-control" type="number" id="visits" name="visits" value="0">
                                     </div>
                                     <!-- /.form-group -->
                                 </div>
@@ -35,7 +64,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Sales</label>
-                                        <input class="form-control" type="number" id="sales" name="sales">
+                                        <input class="form-control" type="number" id="sales" name="sales" value="0">
                                     </div>
                                     <!-- /.form-group -->
                                 </div>
@@ -92,7 +121,7 @@
                                             @endforeach
                                         </select>
                                         <label>Quantity</label>
-                                        <input class="form-control" type="number" id="quantity" name="quantity">
+                                        <input class="form-control" type="number" id="quantity" name="quantity" value="1">
                                     </div>
                                     <!-- /.form-group -->
                                 </div>

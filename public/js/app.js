@@ -49601,6 +49601,42 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/api_search_autocomplete.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/admin/api_search_autocomplete.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var api_search_autocomplete = new Vue({
+  el: '#api_search_autocomplete',
+  data: {
+    word_to_search: '',
+    results: []
+  },
+  methods: {
+    autocomplete: function autocomplete() {
+      var _this = this;
+
+      this.results = [];
+
+      if (this.word_to_search.length > 2) {
+        axios.get('/api/autocomplete', {
+          params: {
+            wordsearch: this.word_to_search
+          }
+        }).then(function (response) {
+          _this.results = response.data;
+          console.log(response.data);
+        });
+      }
+    }
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
 /***/ "./resources/js/admin/apicategory.js":
 /*!*******************************************!*\
   !*** ./resources/js/admin/apicategory.js ***!
@@ -49914,6 +49950,10 @@ if (document.getElementById('apiproduct')) {
 
 if (document.getElementById('confirmdelete')) {
   __webpack_require__(/*! ./confirmdelete */ "./resources/js/confirmdelete.js");
+}
+
+if (document.getElementById('api_search_autocomplete')) {
+  __webpack_require__(/*! ./admin/api_search_autocomplete */ "./resources/js/admin/api_search_autocomplete.js");
 }
 
 /***/ }),

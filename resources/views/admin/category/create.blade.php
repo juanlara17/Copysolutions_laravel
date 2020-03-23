@@ -32,10 +32,8 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input v-model="nombre"
-
                                @blur="getCategory"
                                @focus="div_aparecer=false"
-
                                class="form-control" type="text" name="name" id="name">
                         <label for="slug">Slug</label>
                         <input readonly v-model="generarSLug" class="form-control" type="text" name="slug" id="slug">

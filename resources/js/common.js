@@ -37,6 +37,10 @@ if (document.getElementById('confirmdelete')) {
     require('./confirmdelete')
 }
 
+if (document.getElementById('api_search_autocomplete')) {
+    require('./admin/api_search_autocomplete')
+}
+
 
 
 

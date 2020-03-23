@@ -17,8 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/***** Category *****/
 Route::apiResource('category','API\CategoryController')->names('api.category');
 
+/***** Product *****/
 Route::apiResource('product','API\ProductController')->names('api.product');
 
+/***** Delete Image Product *****/
 Route::delete('/deleteimage/{id}', 'API\ProductController@deleteImage')->name('api.deleteimage');
+
+/***** AutoComplete *****/
+Route::get('/autocomplete', 'API\AutoCompleteController@autocomplete')->name('autocomplete');
