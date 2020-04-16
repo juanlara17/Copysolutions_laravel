@@ -39,7 +39,7 @@
         </ul>
 
         <!-- SEARCH FORM -->
-        <div id="api_search_autocomplete">
+        <div id="api_search_autocomplete" style="position: relative">
             <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
                     <input class="form-control form-control-navbar" type="search" placeholder="Search" autocomplete="off"
@@ -47,20 +47,23 @@
                            name="name"
                            v-model="word_to_search"
                            v-on:keyup="autocomplete"
+                           v-on:keyup.enter="submit"
                     >
                     <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
+                        <button id="myButton"
+                            ref="SubmitButtonSearch"
+                            class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
             </form>
 
-            <div class="panel-footer" v-if="results.length">
+            <div class="panel-footer" v-if="results.length" style="position: absolute; z-index: 3; left: 16px; margin-top: 12px">
                 <ul class="list-group">
                     <li class="list-group-item" v-for="result in results">
                         <a href="" class="dropdown-item"
-                           v-on:click.prevent="word_to_search = result.name">
+                           v-on:click.prevent="select(result)">
                             <span v-html="result.name_black"></span>
                         </a>
                     </li>
