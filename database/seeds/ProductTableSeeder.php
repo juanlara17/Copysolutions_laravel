@@ -24,7 +24,7 @@ class ProductTableSeeder extends Seeder
                 'price_old' => 0.00,
                 'percent_promo' => 10.0,
                 'slide_principal' => 0,
-                'state' => 'nuevo',
+                'state' => 'new',
                 'image' => 'https://c49d16a6c82563251344-1ab5a5b00ecdd96a368a8d8d17482920.ssl.cf2.rackcdn.com/images/TS_Mens_Black_Joker_Lines_T_Shirt_14_99_MOdel-617-662.jpg',
                 'visible' => 1,
                 'created_at' => new DateTime,
@@ -65,7 +65,7 @@ class ProductTableSeeder extends Seeder
                 'visible' => 1,
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
-                'category_id' => 2
+                'category_id' => 5
             ]
         );
         Product::insert($data);

@@ -9,14 +9,19 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::orderBy('name')->paginate(10);
+        $name = $request->get('name');
+        $categories = Category::where('name','like',"%$name%")->orderBy('name')->paginate(5);
 
         return view('admin.category.index', compact('categories'));
     }
@@ -34,13 +39,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        /*$cat = new Category();
-        $cat->name          = $request->nombre;
-        $cat->slug          = $request->slug;
-        $cat->description   = $request->descripcion;
-        $cat->save();*/
+        $request->validate([
+            'name' => 'required|max:50|unique:categories,name',
+            'slug' => 'required|max:50|unique:categories,slug',
+            'description' => 'max:50',
+        ]);
+        Category::create($request->all());
 
-        return Category::create($request->all());
+        return redirect()->route('admin.category.index')->with('message',
+            'Record created successfully');
     }
 
     /**
@@ -51,11 +58,9 @@ class CategoryController extends Controller
      */
     public function show($slug)
     {
-        if (Category::where('slug', $slug)->first()) {
-            return 'Slug existente';
-        }else{
-            return 'Slug disponible';
-        }
+        $cat = Category::where('slug', $slug)->firstOrFail();
+        $editar = 'Si';
+        return view('admin.category.show', compact('cat'));
     }
 
     /**
@@ -76,6 +81,12 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $cat = Category::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|max:50|unique:categories,name',$cat->id,
+            'slug' => 'required|max:50|unique:categories,slug',$cat->id,
+            'description' => 'max:50',$cat->id
+        ]);
         /*$cat->name          = $request->name;
         $cat->slug          = $request->slug;
         $cat->description   = $request->description;
@@ -83,7 +94,11 @@ class CategoryController extends Controller
         */
 
         $cat->fill($request->all())->save();
-        return $cat;
+        //return $cat;
+
+
+        return redirect()->route('admin.category.index')->with('message',
+            'Record updated successfully');
     }
 
 
@@ -95,6 +110,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Category::findOrFail($id);
+        $cat->delete();
+
+        return redirect()->route('admin.category.index')->with('message', 'Record deleted successfully');
     }
 }

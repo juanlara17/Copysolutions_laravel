@@ -2,6 +2,11 @@
 
 @section('title', 'Edit Category')
 
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Category</a></li>
+    <li class="breadcrumb-item active">@yield('title')</li>
+@endsection
+
 @section('content')
 
     <div id="apicategory">
@@ -9,7 +14,7 @@
             @csrf
             @method('PUT')
 
-            <div id="nameTemp" v-show="false">{{ $cat->name }}</div>
+            <span id="nameTemp" v-show="false">{{ $cat->name }}</span>
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
@@ -51,6 +56,7 @@
 
                 <!-- /.card-body -->
                 <div class="card-footer">
+                    <a class="btn badge-danger" href="{{ route('cancel','admin.category.index') }}">Cancel</a>
                     <input :disabled="disable_button==1" type="submit" value="Save" class="btn btn-primary float-right">
                 </div>
                 <!-- /.card-footer-->

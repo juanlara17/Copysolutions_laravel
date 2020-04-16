@@ -2,12 +2,16 @@
 
 @section('title', 'Create Category')
 
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Category</a></li>
+    <li class="breadcrumb-item active">@yield('title')</li>
+@endsection
+
 @section('content')
 
     <div id="apicategory">
         <form action="{{ route('admin.category.store') }}" method="POST">
             @csrf
-
 
             <!-- Default box -->
             <div class="card">
@@ -28,10 +32,8 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input v-model="nombre"
-
                                @blur="getCategory"
                                @focus="div_aparecer=false"
-
                                class="form-control" type="text" name="name" id="name">
                         <label for="slug">Slug</label>
                         <input readonly v-model="generarSLug" class="form-control" type="text" name="slug" id="slug">
@@ -50,6 +52,7 @@
 
                 <!-- /.card-body -->
                 <div class="card-footer">
+                    <a class="btn badge-danger" href="{{ route('cancel','admin.category.index') }}">Cancel</a>
                     <input :disabled="disable_button==1" type="submit" value="Save" class="btn btn-primary float-right">
                 </div>
                 <!-- /.card-footer-->

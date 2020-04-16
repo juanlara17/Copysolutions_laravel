@@ -27,7 +27,7 @@ const app = new Vue({
     methods: {
         getCategory() {
             if (this.slug) {
-                let url = '/api/store/' + this.slug;
+                let url = '/api/category/' + this.slug;
                 axios.get(url).then(response => {
                     this.div_mensaje_slug = response.data;
                     // console.log(this.div_mensaje_slug);
@@ -39,6 +39,15 @@ const app = new Vue({
                         this.disable_button = 1;
                     }
                     this.div_aparecer = true;
+
+                    if (document.getElementById('nameTemp')) {
+                        if (document.getElementById('nameTemp').innerHTML === this.nombre) {
+                            this.disable_button = 0;
+                            this.div_mensaje_slug = '';
+                            this.div_clase_slug = '';
+                            this.div_aparecer = false;
+                        }
+                    }
                 });
             } else {
                 this.div_clase_slug = 'badge badge-success';
@@ -46,20 +55,13 @@ const app = new Vue({
                 this.disable_button = 1;
                 this.div_aparecer = true;
             }
+
         }
     },
     mounted() {
-        if (document.getElementById('nameTemp').innerHTML) {
+        if (document.getElementById('nameTemp')) {
             this.nombre = document.getElementById('nameTemp').innerHTML;
             this.disable_button = 0;
         }
     }
 });
-
-var table = document.getElementsByTagName('table')[0],
-    rows = table.getElementsByTagName('tr'),
-    text = 'textContent' in document ? 'textContent' : 'innerText';
-
-for (var i = 1, len = rows.length; i < len; i++){
-    rows[i].children[0][text] = i + ' ' + rows[i].children[0][text];
-}
