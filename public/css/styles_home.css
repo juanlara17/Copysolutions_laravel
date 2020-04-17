@@ -1,0 +1,42 @@
+body {
+  height: 100vh;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column;
+}
+
+header {
+  width: 100%;
+  background-color: #005E97;
+}
+
+.header {
+  height: 80px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.header .nav-brand img {
+  width: 150px;
+}
+
+.header .nav-brand h1 {
+  font-size: 10px;
+}
+
+.header .navbar .navbar-collapse .nav-item a {
+  color: white;
+}
+
+.header .form-inline .input {
+  border: 2px solid white;
+  border-radius: 5px;
+  -webkit-box-flex: 2;
+          flex: 2 100px;
+}
+

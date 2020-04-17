@@ -1,14 +1,10 @@
-<header>
-    <div class="container">
-        <!-- hidden top area toggle link -->
-        <div id="header-hidden-link">
-            <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
-        </div>
-        {{-- MODALS --}}
-        <div class="row nomargin">
+{{-- MODALS --}}
+
+   {{-- <div class="row nomargin">
             @if(Auth::check())
                 <div class="headnav">
                     <ul class="dropdown">
+
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" v-pre>
                             <strong> {{ Auth::user()->name }} <i class="icon-angle-down"></i> </strong>
@@ -173,50 +169,49 @@
                     <!-- end reset modal -->
                 </div>
             @endif
+        </div>--}}
+
+{{-- NAVBAR--}}
+<header>
+    <div class="container header">
+        <div class="nav-brand">
+            <a class="navbar-brand" href="{{ route('index') }}">
+                <img src="images/logo_copy.png" alt="" class="logo"/>
+            </a>
+{{--            <h1>We Are More Than Ink and Paper</h1>--}}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-        {{-- NAVBAR --}}
-        <div class="row">
-            <div class="span4">
-                <div class="logo">
-                    <a href="{{ route('index') }}"><img src="images/logo_copy.png" alt="" class="logo"/></a>
-                    <h1>We Are More Than Ink and Paper</h1>
-                </div>
-            </div>
-            <div class="span8">
-                <div class="navbar navbar-static-top">
-                    <div class="navigation">
-                        <nav>
-                            <ul class="nav topnav">
-                                <li class="dropdown active">
-                                    <a href="{{ route('index') }}">Home </a>
-                                </li>
-                                <li>
-                                    <a href="#">About Us</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#portfolio">Porfolio <i class="icon-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ route('portfolio') }}">Products</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Services <i class="icon-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                                        <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
-                                        <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="{{ route('contact') }}">Contact </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!-- end navigation -->
-                </div>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="input form-control mr-sm-4" type="search" placeholder="Escribe lo que estas buscando..." aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <div class="navbar-expand-lg navbar-light">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </header>
+
+{{--<header id="header" class="header">
+    <div class="container">
+    <a href="{{ route('index') }}"><img src="images/logo_copy.png" alt="" class="logo"/></a>
+
+    <div class="header__menu">
+        <div class="header__menu--profile">
+            <img src="/icons/172626-64.png" alt="user" width="30px">
+            <p>Perfil</p>
+        </div>
+        <ul>
+            <li><a href="/components/inicio_sesion.html">Cuenta</a></li>
+            <li><a href="/">Cerrar sesion</a></li>
+        </ul>
+    </div>
+    </div>
+</header><!-- /header -->--}}

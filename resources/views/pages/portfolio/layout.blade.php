@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="{{ asset('css/page/fancybox/jquery.fancybox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page/jcarousel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page/flexslider.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/page/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/page/styles_.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page/content.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page/navbar-layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page/carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">
+
     @yield('styles')
 
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
