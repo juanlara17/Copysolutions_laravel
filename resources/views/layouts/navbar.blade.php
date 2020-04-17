@@ -173,27 +173,33 @@
 
 {{-- NAVBAR--}}
 <header>
-    <div class="container header">
-        <div class="nav-brand">
-            <a class="navbar-brand" href="{{ route('index') }}">
-                <img src="images/logo_copy.png" alt="" class="logo"/>
-            </a>
-{{--            <h1>We Are More Than Ink and Paper</h1>--}}
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="input form-control mr-sm-4" type="search" placeholder="Escribe lo que estas buscando..." aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <div class="navbar-expand-lg navbar-light">
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
-                    </li>
-                </ul>
+    <div class="row">
+        <div class="container header">
+            <div class="nav-brand col-sm-3">
+                <a class="navbar-brand" href="{{ route('index') }}">
+                    <img src="images/logo_copy.png" alt="" class="logo"/>
+                </a>
+    {{--            <h1>We Are More Than Ink and Paper</h1>--}}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <form class="form-inline my-2 my-lg-0 col-sm-6">
+                <input class="input form-control mr-sm-4" type="search" placeholder="Escribe lo que estas buscando..." aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div class="navbar navbar-expand-lg col-sm-3">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <img src="{{ asset('images/icons/icon_user.png') }}" alt="">
+                            <a href="#" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <img src="{{ asset('images/icons/icon_cart.png') }}" alt="">
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

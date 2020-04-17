@@ -15,8 +15,6 @@ header {
   height: 80px;
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;
 }
@@ -29,8 +27,24 @@ header {
   font-size: 10px;
 }
 
+.header .navbar .navbar-collapse .navbar-nav {
+  display: -webkit-box;
+  display: flex;
+  justify-items: flex-end;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.header .navbar .navbar-collapse .nav-item {
+  display: block;
+}
+
 .header .navbar .navbar-collapse .nav-item a {
   color: white;
+}
+
+.header .navbar .navbar-collapse .nav-item img {
+  width: 30px;
 }
 
 .header .form-inline .input {
