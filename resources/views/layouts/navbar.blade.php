@@ -173,51 +173,38 @@
 
 {{-- NAVBAR--}}
 <header>
-    <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-dark static-top">
         <div class="container header">
-            <div class="nav-brand col-sm-3">
-                <a class="navbar-brand" href="{{ route('index') }}">
+            <div class="logo_brand col-sm-3">
+                <a class="navbar-brand float-left" href="{{ route('index') }}">
                     <img src="images/logo_copy.png" alt="" class="logo"/>
+                    <h1>We Are More Than Ink and Paper</h1>
                 </a>
-    {{--            <h1>We Are More Than Ink and Paper</h1>--}}
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <form class="form-inline my-2 my-lg-0 col-sm-6">
+            <form class="form form-inline my-2 my-lg-0 col-sm-6">
+                <i class="fa fa-search icon"></i>
                 <input class="input form-control mr-sm-4" type="search" placeholder="Escribe lo que estas buscando..." aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+{{--                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>--}}
             </form>
-            <div class="navbar navbar-expand-lg col-sm-3">
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <img src="{{ asset('images/icons/icon_user.png') }}" alt="">
-                            <a href="#" class="nav-link">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <img src="{{ asset('images/icons/icon_cart.png') }}" alt="">
-                        </li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse col-sm-3" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item login align-items-center">
+                        <img src="{{ asset('images/icons/icon_user.png') }}" alt="">
+                        <a href="#" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="{{ asset('images/icons/icon_cart.png') }}" alt="">
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 </header>
+<section class="container send-message">
+    <p class="text-send">ENVIO DE PAQUETE INTERNACIONALES</p>
+    <img class="icon-box" src="{{ asset('images/icons/box.png') }}" alt="">
+</section>
 
-{{--<header id="header" class="header">
-    <div class="container">
-    <a href="{{ route('index') }}"><img src="images/logo_copy.png" alt="" class="logo"/></a>
-
-    <div class="header__menu">
-        <div class="header__menu--profile">
-            <img src="/icons/172626-64.png" alt="user" width="30px">
-            <p>Perfil</p>
-        </div>
-        <ul>
-            <li><a href="/components/inicio_sesion.html">Cuenta</a></li>
-            <li><a href="/">Cerrar sesion</a></li>
-        </ul>
-    </div>
-    </div>
-</header><!-- /header -->--}}
