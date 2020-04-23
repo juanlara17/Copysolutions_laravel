@@ -177,7 +177,7 @@
         <div class="container header">
             <div class="logo_brand col-sm-3">
                 <a class="navbar-brand float-left" href="{{ route('index') }}">
-                    <img src="images/logo_copy.png" alt="" class="logo"/>
+                    <img src="{{ asset('images/logocpy.png') }}" alt="" class="logo"/>
                     <h1>We Are More Than Ink and Paper</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

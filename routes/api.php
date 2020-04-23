@@ -28,3 +28,7 @@ Route::delete('/deleteimage/{id}', 'API\ProductController@deleteImage')->name('a
 
 /***** AutoComplete *****/
 Route::get('/autocomplete', 'API\AutoCompleteController@autocomplete')->name('autocomplete');
+
+/***** Store ********/
+
+Route::apiResource('store', 'API\StoreController')->names('api.store');

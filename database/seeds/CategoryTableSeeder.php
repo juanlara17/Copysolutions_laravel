@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
+use Carbon\Carbon;
 
 class CategoryTableSeeder extends Seeder
 {
@@ -12,23 +13,13 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = array(
-            [
-                'name'  =>  'Branding',
-                'slug'  =>  'branding',
-                'description' => 'Designs',
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime(),
-            ],
-            [
-                'name' => 'Digital Printer',
-                'slug' => 'digital printer',
-                'description' => 'Type of Advertising',
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime(),
-            ],
-        );
-
-        Category::insert($data);
+        $now = Carbon::now()->toDateTimeString();
+//        dd($now);
+        Category::insert([
+            ['name'=>'Stationery','slug'=>'stationery','description'=>'lorem ipsum','created_at'=>$now,'updated_at'=>$now],
+            ['name'=>'Large Format','slug'=>'large-format','description'=>'lorem ipsum','created_at'=>$now,'updated_at'=>$now],
+            ['name'=>'Short Run','slug'=>'short-run','description'=>'lorem ipsum','created_at'=>$now,'updated_at'=>$now],
+            ['name'=>'Delivery','slug'=>'delivery','description'=>'lorem ipsum','created_at'=>$now,'updated_at'=>$now],
+        ]);
     }
 }

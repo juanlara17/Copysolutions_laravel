@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,14 +11,24 @@ class StoreController extends Controller
 {
     public function index()
     {
-        /*$cat = new Category();
-        $cat->name = 'Niños';
-        $cat->slug = 'Niños';
-        $cat->description = 'Niños';
-        $cat->save();
-        return $cat;*/
+        if (request()->category) {
+            $products = Product::with('category')->whereHas('category', function ($query){
+                $query->where('slug', request()->category);
+            })->get();
+            $categories = Category::all();
+            $categoryName = $categories->where('slug', request()->category)->first()->name;
+//            return $products;
+        }else{
+           $products = Product::inRandomOrder()->take(12)->get();
+           $categories = Category::all();
+           $categoryName = 'Featured';
+        }
 
-        return Category::all();
+        return view('store.index')->with([
+            'products' => $products,
+            'categories' => $categories,
+            'categoryName' => $categoryName
+        ]);
     }
 
     public function store(Request $request)
@@ -27,10 +38,6 @@ class StoreController extends Controller
 
     public function show($slug)
     {
-        if (Category::where('slug', $slug)->first()) {
-            return 'Existing';
-        }else{
-            return 'Available';
-        }
+
     }
 }

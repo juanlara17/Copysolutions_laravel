@@ -27,6 +27,7 @@
 {{--    <link rel="stylesheet" href="{{ asset('css/page/footer.css') }}">--}}
 {{--    <link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('css/styles_home.css') }}">
+    @yield('styles')
 </head>
 <body>
 {{--    <div class="wrapper">--}}
@@ -38,10 +39,10 @@
 
 
          {{--CAROUSEL --}}
-        @include('layouts.carousel')
+{{--        @include('layouts.carousel')--}}
 
 {{--        <div class="container">--}}
-{{--            @yield('container')--}}
+            @yield('container')
 {{--        </div>--}}
 
 {{--        --}}{{-- FOOTER --}}

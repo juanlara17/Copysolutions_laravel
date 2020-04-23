@@ -1,4 +1,50 @@
 body {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+.product-section-subtitle,
+.product-section-price {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+h1.stylish-heading {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+h1.stylish-heading:before,
+h1.stylish-heading:after {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 66px;
+  height: 1px;
+  background: #212121;
+  content: "";
+  display: block;
+}
+
+h1.stylish-heading:after {
+  bottom: -14px;
+  top: auto;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+body {
   height: 100vh;
   padding: 0;
   -webkit-box-orient: vertical;
