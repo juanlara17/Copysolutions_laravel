@@ -196,14 +196,14 @@
                         <a href="#" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <img src="{{ asset('images/icons/icon_cart.png') }}" alt="">
+                        <a href="{{ route('api.store.index') }}"><img src="{{ asset('images/icons/icon_cart.png') }}" alt=""></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<section class="container send-message">
+<section class="send-message container">
     <p class="text-send">ENVIO DE PAQUETE INTERNACIONALES</p>
     <img class="icon-box" src="{{ asset('images/icons/box.png') }}" alt="">
 </section>

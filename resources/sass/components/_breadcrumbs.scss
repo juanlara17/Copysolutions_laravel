@@ -1,0 +1,18 @@
+.breadcrumbs {
+    //background: $light-gray-background;
+    border-bottom: 1px solid $separator-color;
+    height: 80px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    background-color: #F5F5F5;
+    margin-top: 8px;
+    .breadcrumb-separator {
+        font-size: 14px;
+        color: lighten($text-color, 20%);
+    }
+
+    .breadcrumbs-container {
+        padding-left: 30px;
+    }
+}

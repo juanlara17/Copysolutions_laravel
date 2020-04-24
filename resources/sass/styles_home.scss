@@ -1,3 +1,24 @@
-@import "abstract/variables";
-@import "base/typography";
+@charset "utf-8";
+
+// Abstracts
+@import 'abstract/variables';
+
+// Base
+@import "vendor/bootstrap";
+@import 'base/reset';
+@import 'base/base';
+@import 'base/helpers';
+@import 'base/typography';
+@import 'base/utility';
+
+
 @import "layout/styles_navbar";
+//@import "styles_store";
+
+// Components
+@import "components/breadcrumbs";
+@import "components/pagination";
+
+// Pages
+@import "pages/shop";
+@import "pages/product";

@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers\API;
 
+
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 class StoreController extends Controller
 {
     public function index()
     {
+        $categories = Category::all();
         if (request()->category) {
             $products = Product::with('category')->whereHas('category', function ($query){
                 $query->where('slug', request()->category);
-            })->get();
+            });
             $categories = Category::all();
-            $categoryName = $categories->where('slug', request()->category)->first()->name;
-//            return $products;
+            $categoryName = optional($categories->where('slug', request()->category)->first())->name;
+            $products = $products->paginate(9);
         }else{
-           $products = Product::inRandomOrder()->take(12)->get();
-           $categories = Category::all();
+           $products = Product::take(12)->paginate(6);
            $categoryName = 'Featured';
         }
 
@@ -38,6 +40,14 @@ class StoreController extends Controller
 
     public function show($slug)
     {
-
+        $product = Product::with('images','category')->where('slug', $slug)->firstOrFail();
+//        return $product;
+        $stockLevel = getStockLevel($product->quantity);
+//        return (json_decode($product->images, true));
+//        return $product;
+        return view('store.show')->with([
+            'product' => $product,
+            'stockLevel' => $stockLevel
+        ]);
     }
 }
