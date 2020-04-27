@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\API;
-
+namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
 
 class StoreController extends Controller
 {
@@ -31,6 +28,7 @@ class StoreController extends Controller
             'categories' => $categories,
             'categoryName' => $categoryName
         ]);
+        return view('store.index');
     }
 
     public function store(Request $request)
@@ -41,12 +39,16 @@ class StoreController extends Controller
     public function show($slug)
     {
         $product = Product::with('images','category')->where('slug', $slug)->firstOrFail();
-//        return $product;
+
+        /* Toma cuatro producto diferentes para colocarlos de sugerencias*/
+        $mightAlsoLike = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get();
+//        return $mightAlsoLike;
+        /* Indica si ese producto a un tiene stok */
         $stockLevel = getStockLevel($product->quantity);
-//        return (json_decode($product->images, true));
 //        return $product;
         return view('store.show')->with([
             'product' => $product,
+            'mightAlsoLike' => $mightAlsoLike,
             'stockLevel' => $stockLevel
         ]);
     }

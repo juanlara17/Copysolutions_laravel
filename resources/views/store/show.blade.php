@@ -23,9 +23,9 @@
                 <img src="{{ $product->images->first()->url  }}" alt="product" class="active" id="currentImage">
             </div>
             <div class="product-section-images">
-                {{--<div class="product-section-thumbnail selected">
+                <div class="product-section-thumbnail selected">
                     <img src="{{ $product->images->first()->url }}" alt="product">
-                </div>--}}
+                </div>
 
                 @if($product->images)
                     @foreach(json_decode($product->images, true) as $image)
@@ -49,11 +49,12 @@
             <p>&nbsp;</p>
 
             @if($product->quantity <= 0)
-                <form action="" METHOD="POST">
-                    {{ csrf_field() }}
-                    <button class="button button-plain" type="submit">Add to Cart</button>
+                <form action="{{ route('cart.saveOrderForLater', $product) }}" method="POST">
+                    @csrf
+                    <input class="button button-plain" type="submit" VALUE="Add to Cart">
                 </form>
             @endif
+
         </div>
     </div>
 @endsection
@@ -69,7 +70,7 @@
                 currentImage.addEventListener('transitionend', () => {
                     currentImage.src = this.querySelector('img').src;
                     currentImage.classList.add('active');
-                })
+                });
                 images.forEach((element) => element.classList.remove('selected'));
                 this.classList.add('selected');
             }

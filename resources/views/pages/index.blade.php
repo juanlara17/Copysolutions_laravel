@@ -2,7 +2,7 @@
 
 
 @section('container')
-
+    <a href="{{route('api.store.index')}}">Abrir</a>
     <section id="content">
         <div class="container">
             <div class="row">

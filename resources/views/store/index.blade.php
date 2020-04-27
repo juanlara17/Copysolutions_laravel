@@ -2,7 +2,7 @@
 
 @section('styles')
     <!-- Select2 -->
-{{--    <link rel="stylesheet" href="{{ asset('css/styles_store.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('css/styles_store.css') }}">
 @endsection
 
 @section('container')
@@ -12,6 +12,8 @@
         <i class="fa fa-chevron-right bread-separator"></i>
         <strong>Shop</strong>
     @endcomponent
+
+
     <section class="products-section container">
             <div class="sidebar">
                 <h3>By Category</h3>
@@ -41,7 +43,7 @@
                     @endforelse
                 </div>
                 <div class="spacer"></div>
-                {{--{{ $products->links() }}--}}
+{{--                {{ $products->links() }}--}}
                 {{ $products->appends(request()->input())->links() }}
             </div>
     </section>

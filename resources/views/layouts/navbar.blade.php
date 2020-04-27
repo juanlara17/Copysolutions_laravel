@@ -196,7 +196,7 @@
                         <a href="#" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('api.store.index') }}"><img src="{{ asset('images/icons/icon_cart.png') }}" alt=""></a>
+                        <a href="{{ route('cart.index') }}"><img src="{{ asset('images/icons/icon_cart.png') }}" alt=""></a>
                     </li>
                 </ul>
             </div>
