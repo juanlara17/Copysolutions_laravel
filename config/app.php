@@ -140,6 +140,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+
         Collective\Html\HtmlServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
@@ -172,6 +173,10 @@ return [
         /*
          * Application Service Providers...
          */
+
+
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        App\Providers\WishListProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -231,7 +236,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class
     ],
 
 ];

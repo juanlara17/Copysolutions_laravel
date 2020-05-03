@@ -13,19 +13,6 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-{{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">--}}
-
-{{--    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/fancybox/jquery.fancybox.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/jcarousel.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/flexslider.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/style.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/content.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/navbar-layout.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/carousel.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/page/footer.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('css/styles_home.css') }}">
     @yield('styles')
 </head>

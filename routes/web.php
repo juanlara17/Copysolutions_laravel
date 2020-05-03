@@ -5,7 +5,7 @@ use App\Product;
 use App\User;
 
 /***** Load Image *****/
-/*Route::get('/test', function () {
+/*Route::get('/test', function (Save) {
 
     $product = Product::with('images', 'category')->orderBy('id','desc')->get();
     return $product;
@@ -44,11 +44,21 @@ Route::resource('admin/category', 'Admin\CategoryController')->names('admin.cate
 Route::resource('admin/product', 'Admin\ProductController')->names('admin.product');
 
 /***** Store ********/
-Route::resource('store', 'StoreController')->names('api.store');
+Route::resource('store', 'StoreController')->names('store');
 
 /***** Cart ******/
 Route::post('cart/saveOrderForLater/{product}', 'CartController@switchToSaveForLater')->name('cart.saveOrderForLater');
 Route::resource('/cart', 'CartController')->names('cart');
+
+/***** SaveForLater ******/
+Route::delete('saveForLater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
+Route::post('saveForLater/{product}', 'SaveForLaterController@switchToCart')->name('saveForLater.switchToCart');
+
+/***** Checkout ******/
+Route::resource('checkout', 'CheckoutController')->names('checkout');
+
+/***** Confirmation *******/
+Route::resource('confirmation', 'ConfirmationController')->names('confirmation');
 
 /***** Authentication ******/
 Auth::routes();
@@ -57,3 +67,7 @@ Route::post('/user/create', 'Admin\UserController@store')->name('create.user');
 
 /***** Home Page *****/
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
+Route::get('empty', function (){
+    \Cart::session('saveForLater')->clear();
+});

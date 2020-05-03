@@ -11,7 +11,7 @@
     @component('components.bradcrumbs')
         <a href="/">Home</a>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span><a href="{{ route('api.store.store') }}">Shop</a></span>
+        <span><a href="{{ route('store.store') }}">Shop</a></span>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
         <strong>{{ $product->name }}</strong>
     @endcomponent
@@ -49,9 +49,12 @@
             <p>&nbsp;</p>
 
             @if($product->quantity <= 0)
-                <form action="{{ route('cart.saveOrderForLater', $product) }}" method="POST">
+                <form action="{{ route('cart.store') }}" method="POST">
                     @csrf
-                    <input class="button button-plain" type="submit" VALUE="Add to Cart">
+                    <input type="hidden" name="id" value="{{ $product->id }}">
+                    <input type="hidden" name="name" value="{{ $product->name }}">
+                    <input type="hidden" name="price" value="{{ $product->price }}">
+                    <button class="button button-plain" type="submit">Add to Cart</button>
                 </form>
             @endif
 

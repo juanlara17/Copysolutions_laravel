@@ -23,12 +23,11 @@ class StoreController extends Controller
            $categoryName = 'Featured';
         }
 
-        return view('store.index')->with([
+        return view('pages.store.index')->with([
             'products' => $products,
             'categories' => $categories,
             'categoryName' => $categoryName
         ]);
-        return view('store.index');
     }
 
     public function store(Request $request)
@@ -46,7 +45,7 @@ class StoreController extends Controller
         /* Indica si ese producto a un tiene stok */
         $stockLevel = getStockLevel($product->quantity);
 //        return $product;
-        return view('store.show')->with([
+        return view('pages.store.show')->with([
             'product' => $product,
             'mightAlsoLike' => $mightAlsoLike,
             'stockLevel' => $stockLevel

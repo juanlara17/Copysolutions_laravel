@@ -9809,6 +9809,8 @@ header {
 }
 
 .header .navbar-collapse .nav-item a {
+  display: -webkit-box;
+  display: flex;
   margin-left: 0;
   color: white;
   font-weight: 200;
@@ -9817,6 +9819,24 @@ header {
 
 .header .navbar-collapse .nav-item img {
   width: 30px;
+}
+
+.header .navbar-collapse .nav-item .cart-count {
+  display: inline-block;
+  background-color: #FFD94D;
+  line-height: 27px;
+  text-align: center;
+  color: #212121;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.header .navbar-collapse .nav-item .cart-count span {
+  display: inline-block;
+  margin-bottom: -20px;
 }
 
 .header .navbar-collapse .login {
@@ -9930,6 +9950,50 @@ header {
   color: #23527c;
   background-color: #eee;
   border-color: #ddd;
+}
+
+.button {
+  border: 1px solid #212121;
+  padding: 12px 40px;
+}
+
+.button:hover {
+  color: #ffffff;
+  background: #212121;
+}
+
+.button-white {
+  border: 1px solid #ffffff;
+  color: #ffffff !important;
+}
+
+.button-white:hover {
+  color: #212121 !important;
+  background: #ffffff;
+}
+
+.button-primary {
+  background: #0B3D8A;
+  color: white !important;
+  padding: 12px 40px;
+}
+
+.button-primary:hover {
+  background: #082e69;
+}
+
+.button-primary:disabled {
+  background: #0f52b9;
+  cursor: not-allowed;
+}
+
+.button-plain {
+  border: 1px solid #212121 !important;
+  background: transparent;
+}
+
+.button-container {
+  margin: 80px 0;
 }
 
 .products-section {
@@ -10171,6 +10235,10 @@ header {
   margin-bottom: 40px;
 }
 
+.cart-section .cart-buttons a {
+  text-decoration: none;
+}
+
 .cart-section .have-code {
   display: block;
   margin: 14px 0;
@@ -10206,5 +10274,133 @@ header {
 
 .cart-section .have-code-container input[type=submit]:hover {
   background: #212121;
+}
+
+h1.checkout-heading {
+  margin-top: 40px;
+}
+
+.checkout-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  margin: 40px auto 80px;
+}
+
+.checkout-section .checkout-table-container {
+  margin-left: 124px;
+}
+
+.checkout-section h2 {
+  margin-bottom: 28px;
+}
+
+.checkout-section .checkout-table-row {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  border-top: 1px solid #919191;
+  padding: 14px 0;
+}
+
+.checkout-section .checkout-table-row:last-child {
+  border-bottom: 1px solid #919191;
+}
+
+.checkout-section .checkout-table-row .checkout-table-row-left,
+.checkout-section .checkout-table-row .checkout-table-row-right {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.checkout-section .checkout-table-row .checkout-table-row-left {
+  width: 75%;
+}
+
+.checkout-section .checkout-table-row .checkout-table-img {
+  max-height: 60px;
+}
+
+.checkout-section .checkout-table-row .checkout-table-description {
+  color: #919191;
+}
+
+.checkout-section .checkout-table-row .checkout-table-price {
+  padding-top: 6px;
+}
+
+.checkout-section .checkout-table-row .checkout-table-quantity {
+  border: 1px solid #919191;
+  padding: 4px 12px;
+  margin-right: 5px;
+}
+
+.checkout-section .checkout-totals {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #919191;
+  padding: 18px 0;
+  line-height: 2;
+}
+
+.checkout-section .checkout-totals .checkout-totals-right {
+  text-align: right;
+}
+
+.checkout-section .checkout-totals .checkout-totals-total {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 2.2;
+}
+
+/**
+* The CSS shown here will not be introduced in the Quickstart guide, but shows
+* how you can use CSS to style your Element's container.
+*/
+
+.StripeElement {
+  background-color: white;
+  padding: 16px 16px;
+  border: 1px solid #ccc;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#card-errors {
+  color: #fa755a;
+}
+
+.thank-you-section {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
+.thank-you-section h1 {
+  margin-bottom: 10px;
 }
 

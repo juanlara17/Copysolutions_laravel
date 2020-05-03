@@ -6,37 +6,19 @@ use App\Product;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 
-
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-//        $product = Product::inRandomOrder()->take(12)->get();
-        $product = Product::find(66);
+        $mightAlsoLike = Product::inRandomOrder()->take(4)->get();
 
-        $rowId = 456;   // generate a unique() row ID
-        $userID = 2;
-        // add the product to cart
-        \Cart::session($userID)->add(array(
-            'id' => $rowId,
-            'name' => $product->name,
-            'price' => $product->price,
-            'quantity' => 4,
-            'attributes' => array(),
-            'model' => $product
-        ));
-//        $items = \Cart::getContent();
-
-//        return $items;
-//        Cart::add(455, 'Sample Item', 100.99, 2, array());       ;
-
-//        return \Cart::getContent()->count();
-        return view('pages.cart.index');
+        return view('pages.cart.index')->with([
+            'mightAlsoLike' => $mightAlsoLike,
+            'newSubtotal' => getNumbers()->get('newSubtotal'),
+            'newTax' => getNumbers()->get('newTax'),
+            'newTotal' => getNumbers()->get('newTotal')
+        ]);
     }
 
     /**
@@ -72,6 +54,20 @@ class CartController extends Controller
         //
     }
 
+
+    public function store(Request $request)
+    {
+        $items = \Cart::getContent();
+        foreach ($items as $item) {
+            if ($item->id === $request->id) {
+                return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
+            }
+        }
+        $product = new Product();
+        \Cart::session('default')->add($request->id, $request->name, $request->price, 1, array())->associate($product);
+        return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart!');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -92,15 +88,30 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \Cart::session('default')->remove($id);
+
+        return back()->with('success_message', 'Item has been removed!');
     }
 
     public function switchToSaveForLater($id)
     {
-        $item = \Cart::get($id);
-        return $item;
-        return view('pages.cart.index');
+        $product = new Product();
+        $item = \Cart::session('default')->get($id);
+        \Cart::remove($id);
+
+        $itemsSave = \Cart::session('saveForLater')->getContent();
+//        return $item;
+
+        foreach ($itemsSave as $items) {
+            if ($items->id === $item->id) {
+                return redirect()->route('cart.index')->with('success_message', 'Item is already in Save For Later');
+            }
+        }
+
+        \Cart::session('saveForLater')->add($item->id, $item->name, $item->price, 1, array())->associate($product);
+        return redirect()->route('cart.index')->with('success_message', 'Item has been Save For Later!');
     }
+
 
 }
 

@@ -16,3 +16,31 @@ function getStockLevel($quantity)
 
     return $stockLevel;
 }
+
+function getNumbers()
+{
+
+    $tax = config('cart.tax') / 100;
+    $newSubtotal = (\Cart::session('default')->getSubTotal());
+    if ($newSubtotal < 0) {
+        $newSubtotal = 0;
+    }
+//    dd($newSubtotal);
+    $newTax = $newSubtotal * $tax;
+//    dd($newTax);
+    $newTotal = $newSubtotal * (1 + $tax);
+
+    return collect([
+        'tax' => $tax,
+        'newSubtotal' => $newSubtotal,
+        'newTax' => $newTax,
+        'newTotal' => $newTotal,
+    ]);
+}
+
+function presentPrice($price)
+{
+    $usa = new NumberFormatter("en-US", NumberFormatter::DEFAULT_STYLE);
+    $formatted1 = $usa->format($price);
+    return $formatted1;
+}
