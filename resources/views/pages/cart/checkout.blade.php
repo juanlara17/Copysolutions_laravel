@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <label for="province">Province</label>
-                        <input type="text" name="city" id="province" class="form-control" value="{{ old('province') }}" required>
+                        <input type="text" name="province" id="province" class="form-control" value="{{ old('province') }}" required>
                     </div>
                     <div class="half-form">
                         <div class="form-group">
@@ -99,6 +99,7 @@
                             </section>
 
                             <input type="hidden" name="payment_method_nonce" id="nonce">
+                            <button type="submit" class="button-primary"><span>Pay with Paypal</span></button>
                         </form>
                     </div>
                 @endif
@@ -121,7 +122,7 @@
                                 </div>
                             </div>
                             <div class="checkout-table-row-right">
-                                <div class="checkout-table-quantity">{{ $item->model->quantity }}</div>
+                                <div class="checkout-table-quantity">{{ $item->quantity }}</div>
                             </div>
                         </div>
                     @endforeach

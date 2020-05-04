@@ -48,13 +48,15 @@
                                     </form>
                                 </div>
                                 <div>
-                                    {{--<select name="" id="" class="quantity" data-id="{{ $item->id }}" data-productQuantity="{{ $item->model->quantity }}">
-                                        @for($i=1; $i < 5 + 1; $i++)
-                                            <option {{ $item->qty = $i ? 'selected' : '' }}">{{ $i }}</option>
+{{--                                    @dump($item->quantity)--}}
+                                    <select class="quantity" data-id="{{ $item->id }}">
+                                        @for($i = 1; $i < 5 + 1; $i++)
+                                            <option {{ $item->quantity == $i ? 'selected' : '' }}>{{ $i }}</option>
                                         @endfor
-                                    </select>--}}
+                                    </select>
                                 </div>
-                                <div>{{ $item->model->price }}</div>
+{{--                                {{ dd($item) }}--}}
+                                <div>${{ presentPrice($item->model->price * $item->quantity ) }}</div>
                             </div>
                         </div>
                     @endforeach
@@ -159,6 +161,30 @@
             @endif
         </div>
     </div>
+@endsection
 
-
+@section('scripts')
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        (function () {
+            const classname = document.querySelectorAll('.quantity')
+            Array.from(classname).forEach(function (element) {
+                element.addEventListener('change', function () {
+                    const id =  element.getAttribute('data-id')
+                    axios.patch(`/cart/${id}`, {
+                        id: id,
+                        quantity: this.value
+                    })
+                        .then(function (response) {
+                            console.log(response);
+                            window.location.href = '{{ route('cart.index') }}'
+                        })
+                        .catch(function (error) {
+                            // console.log(error);
+                            window.location.href = '{{ route('cart.index') }}'
+                        });
+                })
+            })
+        })();
+    </script>
 @endsection

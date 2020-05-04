@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles_home.css') }}">
     @yield('styles')
 </head>
-<body>
+<body class="@yield('body-class', '')">
 {{--    <div class="wrapper">--}}
         {{-- TOOGLE TOP --}}
 {{--        @include('pages.wrapper')--}}
