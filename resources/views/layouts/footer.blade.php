@@ -1,95 +1,104 @@
-<!--Divider-->
-<section id="bottom">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <div class="aligncenter">
-                    <div id="twitter-wrapper">
-                        <div id="twitter">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="span3">
-                <div class="widget">
-                    <h5 class="widgetheading">COPY SOLUTIONS</h5>
-                    <ul class="link-list">
-                        <p>
-                            We live in the era of technology and digital
-                            media and this forces us to develop strategies
-                            that go at the speed of today's world. Copy Solutions
-                            Plus, is a company designed to meet the needs of a community
-                            that is advancing by leaps and bounds.
-                        </p>
-                    </ul>
-                </div>
-            </div>
-            <div class="span3">
-                <div class="widget">
-                    <h5 class="widgetheading">SERVICES</h5>
-                    <ul class="link-list">
-                        <li><a href="#">Branding</a></li>
-                        <li><a href="#">Digital Print</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Stationery</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="span3">
-                <div class="widget">
-                    <h5 class="widgetheading">PHOTOSTREAM</h5>
-                    <div class="flickr_badge">
-                        <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </div>
-            </div>
-            <div class="span3">
-                <div class="widget">
-                    <h5 class="widgetheading">GET IN TOUCH WITH US</h5>
-                    <address>
-                        <strong>Copysolutions</strong><br>
-                        10912 West Bellfor ST<br>
-                        Houston, TX 77099, US
-                    </address>
-                    <p>
-                        <i class="icon-phone"></i>  (832) - 598 8333 <br>
-                        <i class="fa fa-whatsapp"></i>  (832) - 528 8559 <br>
-                        <br>
-                        <i class="icon-envelope-alt"></i> copysolutionsplus@gmail.com
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="sub-footer">
+<footer class="page-footer font-small">
+    <div style="background-color: #0B5D92;">
         <div class="container">
-            <div class="row">
-                <div class="span6">
-                    <div class="copyright">
-                        <div class="credits">
-                            © 2019 Copyright
-                            <a href="#">Tech&Engineering</a>
-                        </div>
-                    </div>
+            <!-- Grid row-->
+            <div class="row py-4 d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                    <h6 class="mb-0">Get connected with us on social networks!</h6>
                 </div>
-                <div class="span6">
-                    <ul class="social-network">
-                        <li><a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-square"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-square"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Linkedin"><i class="icon-linkedin icon-square"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Pinterest"><i class="icon-pinterest icon-square"></i></a></li>
-                        <li><a href="#" data-placement="bottom" title="Google plus"><i class="icon-google-plus icon-square"></i></a></li>
-                    </ul>
+                <div class="col-md-6 col-lg-7 text-center text-md-right">
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fa fa-facebook-f white-text mr-4"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fa fa-twitter white-text mr-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fa fa-instagram white-text"> </i>
+                    </a>
                 </div>
+                <!-- Grid column -->
             </div>
         </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="footer-links container text-center text-md-left mt-5">
+        <div class="row mt-3">
+            <div class="footer-copy col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+                <!-- Content -->
+                <a class="footer__logo" href="{{ route('index') }}">
+                    <img src="{{ asset('images/logocpy.png') }}" alt="" class="footer__logo-img" style="width: 165px"/>
+                </a>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block" style="width: 60px;">
+                <p>We live in the era of technology and digital
+                    media and this forces us to develop strategies
+                    that go at the speed of today's world. Copy Solutions
+                    Plus, is a company designed to meet the needs of a community
+                    that is advancing by leaps and bounds.</p>
+            </div>
+
+            <div class="links-item col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold">Services</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block" style="width: 60px;">
+                <p>
+                    <a href="#!">Branding</a>
+                </p>
+                <p>
+                    <a href="#!">Digital Print</a>
+                </p>
+                <p>
+                    <a href="#!">Marketing</a>
+                </p>
+                <p>
+                    <a href="#!">Stationery</a>
+                </p>
+            </div>
+            <div class="links-item col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold">Susbcribe By</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <form class="form form-inline">
+                    <input class="input form-control" type="search" placeholder="Email" aria-label="Search" style="height: 30px">
+                </form>
+                <div class="text-md-center" style="margin-top: 10px">
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fa fa-facebook-f white-text mr-4"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fa fa-twitter white-text mr-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fa fa-instagram white-text"> </i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold">GET IN TOUCH WITH US</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+                <p><i class="fa fa-home mr-3"></i>10912 West Bellfor ST<br class="mr-3">
+                       Houston, TX 77099, US</p>
+                <p><i class="fa fa-envelope mr-3"></i> copysolutionsplus@gmail.com</p>
+                <p><i class="fa fa-phone mr-3"></i> + (832) - 598 8333</p>
+                <p><i class="fa fa-whatsapp mr-3"></i> + (832) - 528 8559</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright
+        <a href="#">Tech&Engineering</a>
     </div>
 </footer>
+

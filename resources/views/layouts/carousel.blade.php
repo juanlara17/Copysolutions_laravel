@@ -1,50 +1,23 @@
-<section id="featured">
-    <!-- Slider -->
-    <div id="nivo-slider">
-        <div class="nivo-slider">
-            <!-- Slide #1 image -->
-            <img src="https://cdn.pixabay.com/photo/2014/12/15/17/18/home-office-569359_1280.jpg" alt="" title="#caption-2" />
-            <!-- Slide #2 image -->
-            <img src="https://cdn.pixabay.com/photo/2015/10/29/14/38/web-1012467_1280.jpg" alt="" title="#caption-1" />
-            <!-- Slide #3 image -->
-            <img src="https://cdn.pixabay.com/photo/2018/02/03/09/51/bulletin-board-3127287_1280.jpg" alt="" title="#caption-3" />
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="span12">
-                    <!-- Slide #1 caption -->
-                    <div class="nivo-caption" id="caption-1">
-                        <div>
-                            <h2>Awesome <strong>features</strong></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                            </p>
-                            <a href="#" class="btn btn-theme">Read More</a>
-                        </div>
-                    </div>
-                    <!-- Slide #2 caption -->
-                    <div class="nivo-caption" id="caption-2">
-                        <div>
-                            <h2>Fully <strong>responsive</strong></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                            </p>
-                            <a href="#" class="btn btn-theme">Read More</a>
-                        </div>
-                    </div>
-                    <!-- Slide #3 caption -->
-                    <div class="nivo-caption" id="caption-3">
-                        <div>
-                            <h2>Very <strong>customizable</strong></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                            </p>
-                            <a href="#" class="btn btn-theme">Read More</a>
-                        </div>
-                    </div>
-                </div>
+<section class="carousel-section container">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="resize-image d-block w-100" src="{{ asset('images/carousel/banner.jpeg') }}" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="resize-image d-block w-100" src="{{ asset('images/carousel/bussine_card.jpg') }}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="resize-image d-block w-100" src="{{ asset('images/carousel/flayer.png') }}" alt="Third slide">
             </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <!-- end slider -->
 </section>

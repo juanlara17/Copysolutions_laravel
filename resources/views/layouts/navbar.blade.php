@@ -196,7 +196,7 @@
                         <a href="#" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('cart.index') }}"><img src="{{ asset('images/icons/icon_cart.png') }}" alt="cart">
+                        <a href="{{ route('store.index') }}"><img src="{{ asset('images/icons/icon_cart.png') }}" alt="cart">
                             @if(\Cart::getContent()->count() > 0)
                                 <span class="cart-count"><span>{{ \Cart::getContent('default')->count() }}</span></span>
                             @endif

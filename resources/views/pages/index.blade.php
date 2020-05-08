@@ -1,198 +1,226 @@
 @extends('../layouts.layout')
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/slick-1.8.1/slick/slick.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/slick-1.8.1/slick/slick-theme.css') }}"/>
+@endsection
 
 @section('container')
-    <a href="{{route('store.index')}}">Abrir</a>
+
+    <!-- CAROUSEL -->
+    @include('layouts.carousel')
+
+    <!--BANNER PUBLICIDAD -->
+    @include('custom.banner_publ')
+
+
     <section id="content">
-        <div class="container">
-            <div class="row">
-                <div class="span12">
-                    <div class="row">
-                        <div class="span3">
-                            <div class="box aligncenter">
-                                <div class="aligncenter icon">
-                                    <i class="icon-tag icon-circled icon-64 active"></i>
+
+        <!-- Section de  envios y pagos-->
+        <section class="envios container">
+            <div class="envios__content">
+                <div>
+                    <img src="{{ asset('asset/images/camion.png') }}" alt="">
+                    <p>ENVIO A CUALQUIER LUGAR</p>
+                </div>
+                <div>
+                    <img src="{{ asset('asset/images/pagar.png') }}" alt="">
+                    <p>ACEPTAMOS CUALQUIER MEDIO DE PAGOS</p>
+                </div>
+                <div>
+                    <img src="{{ asset('asset/images/contraentrega.png') }}" alt="">
+                    <p>PAGO CONTRA ENTREGA</p>
+                </div>
+            </div>
+        </section>
+        <!-- Fin de section de envios y pagos-->
+
+        <!--Section de productos recomendados-->
+        <section class="product">
+            <h1>PRODUCTOS RECOMENDADOS</h1>
+            <div class="product__carousel">
+                <div class="product-item">
+                    <div class="product--slid">
+                        <div class="image__container">
+                            <img src="{{ asset('asset/images/prod1.jpg') }}" alt="Flayers"
+                                 style="width: 100%; height: auto; max-width:600px; ">
+                            <div class="product-info">
+                                <div class="product-title ">
+                                    Flayers
                                 </div>
-                                <div class="text">
-                                    <h6>Branding</h6>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                                    </p>
-                                    <a href="#">Learn more</a>
+                                <div class="product-descri ">Texto de ejemplo</div>
+                                <div class="text-small ">
+                                    <div>
+                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
+                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div>
+                                <a href="#" itemprop="url "> </a><a href="#">
+                                    <button class="button ">Shop Now</button>
+                                </a></div>
                         </div>
-                        <div class="span3">
-                            <div class="box aligncenter">
-                                <div class="aligncenter icon">
-                                    <i class="icon-print icon-circled icon-64 active"></i>
+                    </div>
+
+                </div>
+
+                <div class="product-item">
+                    <div class="product--slid">
+                        <div class="image__container">
+                            <img src="{{ asset('asset/images/prod2.png') }}" alt="Flayers"
+                                 style="width: 100%; height: auto; max-width:600px; ">
+                            <div class="product-info">
+                                <div class="product-title ">
+                                    Flayers
                                 </div>
-                                <div class="text">
-                                    <h6>Digital Print</h6>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                                    </p>
-                                    <a href="#">Learn more</a>
+                                <div class="product-descri ">Texto de ejemplo</div>
+                                <div class="text-small ">
+                                    <div>
+                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
+                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div>
+                                <a href="#" itemprop="url "> </a><a href="#">
+                                    <button class="button ">Shop Now</button>
+                                </a></div>
                         </div>
-                        <div class="span3">
-                            <div class="box aligncenter">
-                                <div class="aligncenter icon">
-                                    <i class="icon-bullhorn icon-circled icon-64 active"></i>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product--slid">
+                        <div class="image__container">
+                            <img src="{{ asset('asset/images/prod3.jpg') }}" alt="Flayers"
+                                 style="width: 100%; height: auto; max-width:600px; ">
+                            <div class="product-info">
+                                <div class="product-title ">
+                                    Flayers
                                 </div>
-                                <div class="text">
-                                    <h6>Marketing</h6>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                                    </p>
-                                    <a href="#">Learn more</a>
+                                <div class="product-descri ">Texto de ejemplo</div>
+                                <div class="text-small ">
+                                    <div>
+                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
+                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div>
+                                <a href="#" itemprop="url "> </a><a href="#">
+                                    <button class="button ">Shop Now</button>
+                                </a></div>
                         </div>
-                        <div class="span3">
-                            <div class="box aligncenter">
-                                <div class="aligncenter icon">
-                                    <i class="icon-edit icon-circled icon-64 active"></i>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product--slid">
+                        <div class="image__container">
+                            <img src="{{ asset('asset/images/prod4.jpg') }}" alt="Flayers"
+                                 style="width: 100%; height: auto; max-width:600px; ">
+                            <div class="product-info">
+                                <div class="product-title ">
+                                    Flayers
                                 </div>
-                                <div class="text">
-                                    <h6>Stationery</h6>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                                    </p>
-                                    <a href="#">Learn more</a>
+                                <div class="product-descri ">Texto de ejemplo</div>
+                                <div class="text-small ">
+                                    <div>
+                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
+                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div>
+                                <a href="#" itemprop="url "> </a><a href="#">
+                                    <button class="button ">Shop Now</button>
+                                </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product--slid">
+                        <div class="image__container">
+                            <img src="{{ asset('asset/images/product5.jpg') }}" alt="Flayers"
+                                 style="width: 100%; height: auto; max-width:600px; ">
+                            <div class="product-info">
+                                <div class="product-title ">
+                                    Flayers
+                                </div>
+                                <div class="product-descri ">Texto de ejemplo</div>
+                                <div class="text-small ">
+                                    <div>
+                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
+                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#" itemprop="url "> </a><a href="#">
+                                    <button class="button ">Shop Now</button>
+                                </a></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- divider -->
-            <div class="row">
-                <div class="span12">
-                    <div class="solidline">
-                    </div>
+
+            <div class="product__vrmas">
+                <button type="submit" role="link" onclick="window.location='{{ route('store.index') }}'">Ver más...</button>
+            </div>
+        </section>
+        <!-- Fin Section de productos recomendados-->
+
+        <!-- Section  services-->
+        <section class="services-list">
+            <h1>Services</h1>
+            <div class="services__content">
+                <div class="services__content--item">
+                    <img src="{{ asset('asset/images/service1.png') }}" alt="">
+                    <p>Digital Print</p>
+                </div>
+                <div class="services__content--item">
+                    <img src="{{ asset('asset/images/service2.png') }}" alt="">
+                    <p>Marketing</p>
+                </div>
+                <div class="services__content--item">
+                    <img src="{{ asset('asset/images/service3png.png') }}" alt="">
+                    <p>Branding</p>
+                </div>
+                <div class="services__content--item">
+                    <img src="{{ asset('asset/images/service4.png') }}" alt="">
+                    <p>Stationery</p>
+                </div>
+                <div class="services__content--item">
+                    <img src="{{ asset('asset/images/service5.png') }}" alt="">
+                    <p>deliverys</p>
                 </div>
             </div>
-            <!-- end divider -->
-            <!-- Portfolio Projects -->
-            <div class="row" id="portfolio">
-                <div class="span12">
-                    <h4 class="heading">Some of recent <strong>works</strong></h4>
-                    <div class="row">
-                        <section id="projects">
-                            <ul id="thumbs" class="portfolio">
+        </section>
+        <!-- Fin de section servicess-->
 
-                                <!-- Item Project and Filter Name 1 -->
-                                <li class="item-thumbs span3 design" data-id="id-0" data-type="web">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="{{ asset('images/services/digital_print_1.jpg') }}">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/digital_print_1.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
+        @include('layouts.slide-category')
 
-                                <!-- Item Project and Filter Name 2-->
-                                <li class="item-thumbs span3 design" data-id="id-1" data-type="icon">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="img/works/full/image-02-full.jpg">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/print2.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
-
-                                <!-- Item Project and Filter Name 3-->
-                                <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-03-full.jpg">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/print3.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
-
-                                <!-- Item Project and Filter Name 4-->
-                                <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-04-full.jpg">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/branding_2.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
-
-                                <!-- Item Project and Filter Name 1 -->
-                                <li class="item-thumbs span3 design" data-id="id-0" data-type="web">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="img/works/full/image-01-full.jpg">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/digital_print_1.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
-
-                                <!-- Item Project and Filter Name 2-->
-                                <li class="item-thumbs span3 design" data-id="id-1" data-type="icon">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="img/works/full/image-02-full.jpg">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/print2.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
-
-                                <!-- Item Project and Filter Name 3-->
-                                <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-03-full.jpg">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/print3.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
-
-                                <!-- Item Project and Filter Name 4-->
-                                <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-04-full.jpg">
-                                        <span class="overlay-img"></span>
-                                        <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                    <!-- Thumb Image and Description -->
-                                    <img src="{{ asset('images/services/branding_2.jpg') }}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                                </li>
-                                <!-- End Item Project -->
-
-                            </ul>
-                        </section>
-                    </div>
+    <!-- Section  bannerbotton-->
+        <section class="bannerbotton">
+            <div class="bannerbotton__content">
+                <div class="bannerbotton_content--btn">
+                <button>
+                    CONTRATA AQUÍ
+                </button>
                 </div>
             </div>
-            <!-- End Portfolio Projects -->
-            <!-- divider -->
-            <div class="row">
-                <div class="span12">
-                    <div class="solidline">
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
     </section>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="{{ asset('js/slick-1.8.1/slick/slick.min.js') }}"></script>
+    <script src="{{ asset('js/utils.js') }}"></script>
 @endsection
 

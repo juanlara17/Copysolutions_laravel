@@ -11,20 +11,22 @@
 @import 'base/typography';
 @import 'base/utility';
 
-
-@import "layout/styles_navbar";
-//@import "styles_store";
-
 // Components
 @import "components/breadcrumbs";
 @import "components/pagination";
 @import "components/buttons";
 @import "components/form";
+@import "components/banner-publ";
+@import "components/style_slide";
 
 // Pages
+@import "pages/index";
 @import "pages/shop";
 @import "pages/product";
 @import "pages/cart";
 @import "pages/checkout";
 @import "pages/thankyou";
 
+@import "layout/styles_navbar";
+@import "layout/footer";
+//@import "styles_store";
