@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+// Abstracts
+@import 'abstract/variables';
+
+// Base
+@import "vendor/bootstrap";
+@import 'base/reset';
+@import 'base/base';
+@import 'base/helpers';
+@import 'base/typography';
+@import 'base/utility';
+
+// Components
+@import "components/breadcrumbs";
+@import "components/pagination";
+@import "components/buttons";
+@import "components/form";
+@import "components/banner-publ";
+@import "components/style_slide";
+
+// Pages
+@import "pages/index";
+@import "pages/shop";
+@import "pages/product";
+@import "pages/cart";
+@import "pages/checkout";
+@import "pages/thankyou";
+
+@import "layout/styles_navbar";
+@import "layout/footer";
+//@import "styles_store";

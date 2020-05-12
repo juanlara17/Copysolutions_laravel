@@ -1,14 +1,10 @@
-<header>
-    <div class="container">
-        <!-- hidden top area toggle link -->
-        <div id="header-hidden-link">
-            <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
-        </div>
-        {{-- MODALS --}}
-        <div class="row nomargin">
+{{-- MODALS --}}
+
+   {{-- <div class="row nomargin">
             @if(Auth::check())
                 <div class="headnav">
                     <ul class="dropdown">
+
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" v-pre>
                             <strong> {{ Auth::user()->name }} <i class="icon-angle-down"></i> </strong>
@@ -173,50 +169,46 @@
                     <!-- end reset modal -->
                 </div>
             @endif
-        </div>
-        {{-- NAVBAR --}}
-        <div class="row">
-            <div class="span4">
-                <div class="logo">
-                    <a href="{{ route('index') }}"><img src="images/logo_copy.png" alt="" class="logo"/></a>
+        </div>--}}
+
+{{-- NAVBAR--}}
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark static-top">
+        <div class="container header">
+            <div class="logo_brand col-sm-3">
+                <a class="navbar-brand float-left" href="{{ route('index') }}">
+                    <img src="{{ asset('images/logocpy.png') }}" alt="" class="logo"/>
                     <h1>We Are More Than Ink and Paper</h1>
-                </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <div class="span8">
-                <div class="navbar navbar-static-top">
-                    <div class="navigation">
-                        <nav>
-                            <ul class="nav topnav">
-                                <li class="dropdown active">
-                                    <a href="{{ route('index') }}">Home </a>
-                                </li>
-                                <li>
-                                    <a href="#">About Us</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#portfolio">Porfolio <i class="icon-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ route('portfolio') }}">Products</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Services <i class="icon-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                                        <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
-                                        <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="{{ route('contact') }}">Contact </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!-- end navigation -->
-                </div>
+            <form class="form form-inline my-2 my-lg-0 col-sm-6">
+                <i class="fa fa-search icon"></i>
+                <input class="input form-control mr-sm-4" type="search" placeholder="Escribe lo que estas buscando..." aria-label="Search">
+{{--                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>--}}
+            </form>
+            <div class="collapse navbar-collapse col-sm-3" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item login align-items-center">
+                        <img src="{{ asset('images/icons/icon_user.png') }}" alt="">
+                        <a href="#" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('store.index') }}"><img src="{{ asset('images/icons/icon_cart.png') }}" alt="cart">
+                            @if(\Cart::getContent()->count() > 0)
+                                <span class="cart-count"><span>{{ \Cart::getContent('default')->count() }}</span></span>
+                            @endif
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 </header>
+<section class="send-message container">
+    <p class="text-send">ENVIO DE PAQUETE INTERNACIONALES</p>
+    <img class="icon-box" src="{{ asset('images/icons/box.png') }}" alt="">
+</section>
+

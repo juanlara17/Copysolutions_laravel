@@ -1,0 +1,47 @@
+footer {
+    background: $primary;
+    color: $white;
+    padding: 40px 0;
+}
+
+.page-footer{
+    margin: 0;
+    padding: 0;
+
+    .footer-links {
+        .footer-copy{
+            display: flex;
+            flex-direction: column;
+            p {
+                text-align: justify;
+            }
+           hr {
+                margin-left: 0;
+            }
+        }
+        .links-item {
+            a{
+                color: white;
+            }
+        }
+        hr {
+            height: 2px;
+            background-color: #558E36;
+        }
+    }
+    p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+
+.footer-copyright {
+    a {
+        color: white;
+        font-weight: bold;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}
