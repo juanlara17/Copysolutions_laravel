@@ -38,7 +38,7 @@ Route::get('portfolio', function () {
 
 /***** Panel Admin *****/
 Route::get('admin', function () {
-    return view('admin.admin');
+    return view('admin.pages.dashboard');
 })->name('admin');
 
 /***** Resources Category ******/

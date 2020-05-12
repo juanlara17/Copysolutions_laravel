@@ -40,7 +40,9 @@
         <div class="container">
             @yield('container')
         </div>
-
+        <a href="https://wa.me/573015941328?text=Hola!%20me%20pueden%20apoyar?" target="_blank" class="appWhatsapp">
+            <img src="{{ asset('images/icons/icon_whatsapp.png') }}" alt="icon_whatsapp">
+        </a>
         {{-- FOOTER --}}
         @include('layouts.footer')
         <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
