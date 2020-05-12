@@ -44,23 +44,25 @@
                         <div class="image__container">
                             <img src="{{ asset('asset/images/prod1.jpg') }}" alt="Flayers"
                                  style="width: 100%; height: auto; max-width:600px; ">
-                            <div class="product-info">
-                                <div class="product-title ">
-                                    Flayers
-                                </div>
-                                <div class="product-descri ">Texto de ejemplo</div>
-                                <div class="text-small ">
+                            <div class="product_content">
+                                <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                     <div>
-                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
-                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        <div>
+                                            <div class="product_name"><a href="product.html">Business Card</a></div>
+
                                         </div>
+                                    </div>
+                                    <div class="ml-auto text-right">
+                                        <div class="product_category">In <a href="category.html">Category</a></div>
+                                        <div class="product_price text-right">$3<span>.99</span></div>
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <a href="#" itemprop="url "> </a><a href="#">
                                     <button class="button ">Shop Now</button>
-                                </a></div>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -71,16 +73,17 @@
                         <div class="image__container">
                             <img src="{{ asset('asset/images/prod2.png') }}" alt="Flayers"
                                  style="width: 100%; height: auto; max-width:600px; ">
-                            <div class="product-info">
-                                <div class="product-title ">
-                                    Flayers
-                                </div>
-                                <div class="product-descri ">Texto de ejemplo</div>
-                                <div class="text-small ">
+                            <div class="product_content">
+                                <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                     <div>
-                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
-                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        <div>
+                                            <div class="product_name"><a href="product.html">Design Web</a></div>
+
                                         </div>
+                                    </div>
+                                    <div class="ml-auto text-right">
+                                        <div class="product_category">In <a href="category.html">Category</a></div>
+                                        <div class="product_price text-right">$3<span>.99</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +91,7 @@
                                 <a href="#" itemprop="url "> </a><a href="#">
                                     <button class="button ">Shop Now</button>
                                 </a></div>
-                        </div>
+                            </div>
                     </div>
                 </div>
                 <div class="product-item">
@@ -96,16 +99,17 @@
                         <div class="image__container">
                             <img src="{{ asset('asset/images/prod3.jpg') }}" alt="Flayers"
                                  style="width: 100%; height: auto; max-width:600px; ">
-                            <div class="product-info">
-                                <div class="product-title ">
-                                    Flayers
-                                </div>
-                                <div class="product-descri ">Texto de ejemplo</div>
-                                <div class="text-small ">
+                            <div class="product_content">
+                                <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                     <div>
-                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
-                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        <div>
+                                            <div class="product_name"><a href="product.html">Brochure</a></div>
+
                                         </div>
+                                    </div>
+                                    <div class="ml-auto text-right">
+                                        <div class="product_category">In <a href="category.html">Category</a></div>
+                                        <div class="product_price text-right">$3<span>.99</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -162,14 +166,16 @@
                             <div>
                                 <a href="#" itemprop="url "> </a><a href="#">
                                     <button class="button ">Shop Now</button>
-                                </a></div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="product__vrmas">
-                <button type="submit" role="link" onclick="window.location='{{ route('store.index') }}'">Ver más...</button>
+                <button type="submit" role="link" onclick="window.location='{{ route('store.index') }}'">Ver más...
+                </button>
             </div>
         </section>
         <!-- Fin Section de productos recomendados-->
@@ -204,13 +210,14 @@
 
         @include('layouts.slide-category')
 
-    <!-- Section  bannerbotton-->
+        <!-- Section  bannerbotton-->
         <section class="bannerbotton">
             <div class="bannerbotton__content">
+                <img src="{{asset('images/bannerenvio.png')}}" alt="">
                 <div class="bannerbotton_content--btn">
-                <button>
-                    CONTRATA AQUÍ
-                </button>
+                    <button>
+                        CONTRATA AQUÍ
+                    </button>
                 </div>
             </div>
         </section>

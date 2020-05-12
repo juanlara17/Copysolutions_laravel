@@ -1,22 +1,24 @@
-h1 {
-    padding-top: 35px;
-    text-align: center;
-    color: $primary;
-    font-size: 25px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+.product,
+.services-list,
+.categories{
+    h1 {
+        padding-top: 35px;
+        text-align: center;
+        color: $primary;
+        font-size: 25px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
 }
 
+
 .carousel-section {
-    //background-color: #07539D;
-    //width: 70%;
-    //height: 200px;
     margin: 10px auto;
     .carousel-inner{
-        height: 400px;
+        height: 450px;
         .resize-image {
-            height: 400px;
+            height: 450px;
         }
     }
 }
@@ -58,33 +60,77 @@ h1 {
         margin: 0 auto;
         .product-item {
             padding: 10px;
-            width: 260px;
             margin: 5px;
-        }
-        .product--slid {
-            button {
-                background-color: #333;
-                border-radius: 3px;
-                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-                box-sizing: border-box;
-                color: #fff;
-                cursor: pointer;
-                font-family: Arial, sans-serif;
-                font-size: 14px;
-                font-weight: 600;
-                height: 40px;
-                letter-spacing: 2px;
-                line-height: 34px;
-                margin: 0 0 15px;
-                padding: 0 13px;
-                text-align: center;
-                text-decoration: none;
-                text-transform: uppercase;
-                outline: none;
-                width: 100%;
-                white-space: nowrap;
-                &:hover {
-                    background-color: #07539D;
+            .product--slid {
+                .product_content
+                {
+                    border: solid 2px #dbdbdb;
+                }
+                .product_info {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                    padding-top: 18px;
+                    padding-bottom: 10px;
+                }
+
+                .product_name {
+                    max-width: 175px;
+                }
+
+                .product_name a {
+                    font-size: 20px;
+                    line-height: 1.2;
+                    color: #4a4a4a;
+                    font-weight: 500;
+                }
+
+                .product_name a:hover,
+                .product_category a:hover {
+                    color: #2fce98;
+                }
+
+                .home_item_large .product_name a,
+                .home_item_large .product_category,
+                .home_item_large .product_category a {
+                    color: #FFFFFF;
+                }
+
+                .product_category {
+                    margin-top: 2px;
+                }
+
+                .product_category,
+                .product_category a {
+                    font-size: 14px;
+                    color: #969696;
+                    font-style: italic;
+                    font-weight: 400;
+                }
+                button {
+                    background-color: #333;
+                    border-radius: 3px;
+                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+                    box-sizing: border-box;
+                    color: #fff;
+                    cursor: pointer;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    height: 40px;
+                    letter-spacing: 2px;
+                    line-height: 34px;
+                    margin: 0 0 15px;
+                    padding: 0 13px;
+                    text-align: center;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    outline: none;
+                    width: 100%;
+                    white-space: nowrap;
+
+                    &:hover {
+                        background-color: #07539D;
+                    }
                 }
             }
         }
@@ -215,19 +261,15 @@ h1 {
     align-items: center;
     margin-bottom: 0;
     .bannerbotton__content {
-        background-image: url('public/asset/images/bannerenvio.png');
-        background-repeat: no-repeat;
-        height: 310px;
-        max-height: 310px;
-        border-radius: 10px;
-        background-size: 820px 310px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+       position: relative;
+        width: 70%;
     }
 
     .bannerbotton_content--btn {
         padding-left: 320px;
+        position: absolute;
+        top:42%;
+        left: 42%;
         button {
             background: linear-gradient(180deg, #07539D 0%, #6DCEFD 100%);
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

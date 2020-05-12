@@ -10058,7 +10058,9 @@ form button[type=submit] {
   margin: 3px 0px;
 }
 
-h1 {
+.product h1,
+.services-list h1,
+.categories h1 {
   padding-top: 35px;
   text-align: center;
   color: #0B3D8A;
@@ -10073,11 +10075,11 @@ h1 {
 }
 
 .carousel-section .carousel-inner {
-  height: 400px;
+  height: 450px;
 }
 
 .carousel-section .carousel-inner .resize-image {
-  height: 400px;
+  height: 450px;
 }
 
 .envios,
@@ -10126,11 +10128,55 @@ h1 {
 
 .product .product__carousel .product-item {
   padding: 10px;
-  width: 260px;
   margin: 5px;
 }
 
-.product .product__carousel .product--slid button {
+.product .product__carousel .product-item .product--slid .product_content {
+  border: solid 2px #dbdbdb;
+}
+
+.product .product__carousel .product-item .product--slid .product_info {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+
+.product .product__carousel .product-item .product--slid .product_name {
+  max-width: 175px;
+}
+
+.product .product__carousel .product-item .product--slid .product_name a {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #4a4a4a;
+  font-weight: 500;
+}
+
+.product .product__carousel .product-item .product--slid .product_name a:hover,
+.product .product__carousel .product-item .product--slid .product_category a:hover {
+  color: #2fce98;
+}
+
+.product .product__carousel .product-item .product--slid .home_item_large .product_name a,
+.product .product__carousel .product-item .product--slid .home_item_large .product_category,
+.product .product__carousel .product-item .product--slid .home_item_large .product_category a {
+  color: #FFFFFF;
+}
+
+.product .product__carousel .product-item .product--slid .product_category {
+  margin-top: 2px;
+}
+
+.product .product__carousel .product-item .product--slid .product_category,
+.product .product__carousel .product-item .product--slid .product_category a {
+  font-size: 14px;
+  color: #969696;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.product .product__carousel .product-item .product--slid button {
   background-color: #333;
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
@@ -10153,7 +10199,7 @@ h1 {
   white-space: nowrap;
 }
 
-.product .product__carousel .product--slid button:hover {
+.product .product__carousel .product-item .product--slid button:hover {
   background-color: #07539D;
 }
 
@@ -10296,22 +10342,15 @@ h1 {
 }
 
 .bannerbotton .bannerbotton__content {
-  background-image: url(/images/bannerenvio.png?945374c11086411a16cfded050d17a8d);
-  background-repeat: no-repeat;
-  height: 310px;
-  max-height: 310px;
-  border-radius: 10px;
-  background-size: 820px 310px;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
+  position: relative;
+  width: 70%;
 }
 
 .bannerbotton .bannerbotton_content--btn {
   padding-left: 320px;
+  position: absolute;
+  top: 42%;
+  left: 42%;
 }
 
 .bannerbotton .bannerbotton_content--btn button {
@@ -10797,11 +10836,41 @@ header {
 
 .header .form .input {
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   -webkit-box-flex: 2;
           flex: 2 100px;
   height: 35px;
-  padding-left: 30px;
+  padding-left: 40px;
+}
+
+.header .form .input::-webkit-input-placeholder {
+  color: #919191;
+  font-weight: 340;
+  font-size: 15px;
+}
+
+.header .form .input::-moz-placeholder {
+  color: #919191;
+  font-weight: 340;
+  font-size: 15px;
+}
+
+.header .form .input:-ms-input-placeholder {
+  color: #919191;
+  font-weight: 340;
+  font-size: 15px;
+}
+
+.header .form .input::-ms-input-placeholder {
+  color: #919191;
+  font-weight: 340;
+  font-size: 15px;
+}
+
+.header .form .input::placeholder {
+  color: #919191;
+  font-weight: 340;
+  font-size: 15px;
 }
 
 .header .navbar-collapse .nav-item {

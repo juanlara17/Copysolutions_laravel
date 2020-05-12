@@ -27,9 +27,9 @@
     </div>
 
     <!-- Footer Links -->
-    <div class="footer-links container text-center text-md-left mt-5">
+    <div class="footer-links text-center text-md-left mt-5 container">
         <div class="row mt-3">
-            <div class="footer-copy col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+            <div class="footer-copy col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
                 <a class="footer__logo" href="{{ route('index') }}">
                     <img src="{{ asset('images/logocpy.png') }}" alt="" class="footer__logo-img" style="width: 165px"/>
