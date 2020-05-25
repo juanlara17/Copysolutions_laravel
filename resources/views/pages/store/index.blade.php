@@ -2,7 +2,6 @@
 
 @section('styles')
     <!-- Select2 -->
-    <link rel="stylesheet" href="{{ asset('css/styles_store.css') }}">
 @endsection
 
 @section('container')

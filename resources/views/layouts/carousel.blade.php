@@ -2,13 +2,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="resize-image d-block w-100" src="{{ asset('images/carousel/banner.jpeg') }}" alt="First slide">
+                <img class="resize-image d-block w-100" src="{{ asset('images/carousel/flayer.png') }}" alt="First slide">
             </div>
             <div class="carousel-item">
                 <img class="resize-image d-block w-100" src="{{ asset('images/carousel/bussine_card.jpg') }}" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="resize-image d-block w-100" src="{{ asset('images/carousel/flayer.png') }}" alt="Third slide">
+                <img class="resize-image d-block w-100" src="{{ asset('images/carousel/banner.jpg') }}" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

@@ -125,16 +125,17 @@
                         <div class="image__container">
                             <img src="{{ asset('asset/images/prod4.jpg') }}" alt="Flayers"
                                  style="width: 100%; height: auto; max-width:600px; ">
-                            <div class="product-info">
-                                <div class="product-title ">
-                                    Flayers
-                                </div>
-                                <div class="product-descri ">Texto de ejemplo</div>
-                                <div class="text-small ">
+                            <div class="product_content">
+                                <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                     <div>
-                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
-                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        <div>
+                                            <div class="product_name"><a href="product.html">Flayers</a></div>
+
                                         </div>
+                                    </div>
+                                    <div class="ml-auto text-right">
+                                        <div class="product_category">In <a href="category.html">Category</a></div>
+                                        <div class="product_price text-right">$3<span>.99</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -150,16 +151,17 @@
                         <div class="image__container">
                             <img src="{{ asset('asset/images/product5.jpg') }}" alt="Flayers"
                                  style="width: 100%; height: auto; max-width:600px; ">
-                            <div class="product-info">
-                                <div class="product-title ">
-                                    Flayers
-                                </div>
-                                <div class="product-descri ">Texto de ejemplo</div>
-                                <div class="text-small ">
+                            <div class="product_content">
+                                <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                     <div>
-                                        <div><span class="text-bold "><span class="money " doubly-currency-usd="325 "
-                                                                            doubly-currency="USD ">$3.25 USD</span></span>
+                                        <div>
+                                            <div class="product_name"><a href="product.html">Flayers</a></div>
+
                                         </div>
+                                    </div>
+                                    <div class="ml-auto text-right">
+                                        <div class="product_category">In <a href="category.html">Category</a></div>
+                                        <div class="product_price text-right">$3<span>.99</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -222,6 +224,12 @@
             </div>
         </section>
     </section>
+
+    <div class="button_wsp">
+        <a href="https://wa.me/18325288559?text=Hi!%20Can%20you%20help%20me?" target="_blank" class="appWsp">
+            <img src="{{ asset('images/icons/icon_whatsapp.png') }}" alt="icon_whatsapp">
+        </a>
+    </div>
 @endsection
 
 @section('scripts')

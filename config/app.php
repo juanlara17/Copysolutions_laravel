@@ -140,7 +140,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-
+        Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
@@ -236,7 +236,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class
+        'stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+
     ],
 
 ];

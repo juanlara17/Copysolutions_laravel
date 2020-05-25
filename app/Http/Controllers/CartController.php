@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Darryldecode\Cart\Cart;
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 
 class CartController extends Controller
 {
 
     public function index()
     {
+
         $mightAlsoLike = Product::inRandomOrder()->take(4)->get();
+//        \Debugbar::info($mightAlsoLike);
 
         return view('pages.cart.index')->with([
             'mightAlsoLike' => $mightAlsoLike,
@@ -79,7 +83,7 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'quantity' => 'required|numeric|between:1,5'
+            'quantity' => 'required|numeric|between:1,10'
         ]);
 
         if($validator->fails()){
@@ -87,13 +91,13 @@ class CartController extends Controller
             return response()->json(['success' => false], 400);
         }
 
-        \Cart::session('default')->update($id,[
-            'quantity' => array(
-                'relative' => false,
-                'value' => $request->quantity
-            )
-        ]);
+        $items = \Cart::session('default')->getContent();
 
+        foreach ($items as $item){
+            if($item->id === $id){
+                $item->quantity = $request->quantity;
+            }
+        }
         session()->flash('success_message', 'Quantity was updated successfully!');
         return response()->json(['success' => true]);
     }

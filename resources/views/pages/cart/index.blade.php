@@ -16,11 +16,13 @@
 
             {{-- SHOPPIN CART--}}
             @if(\Cart::session('default')->getContent()->count() > 0)
+{{--                @dump(\Cart::session('default')->getContent())--}}
                 <h2> {{ \Cart::session('default')->getContent()->count() }} item(s) in Shopping Cart</h2>
 
                 <div class="cart-table">
                     @foreach(\Cart::session('default')->getContent() as $item)
-{{--                        {{ dd($item->model) }}--}}
+                         {{--{{ dd(\Cart::session('default')->getContent()) }}--}}
+
 
                         <div class="cart-table-row">
                             <div class="cart-table-row-left">
@@ -49,14 +51,24 @@
                                 </div>
                                 <div>
 {{--                                    @dump($item->quantity)--}}
-                                    <select class="quantity" data-id="{{ $item->id }}">
+                                   {{-- <select class="quantity" data-id="{{ $item->id }}">
                                         @for($i = 1; $i < 5 + 1; $i++)
                                             <option {{ $item->quantity == $i ? 'selected' : '' }}>{{ $i }}</option>
                                         @endfor
-                                    </select>
+
+                                    </select>--}}
+                                    <div class="cart-info quantity" data-id="{{ $item->id }}">
+                                        <div class="btn-increment-decrement" onClick="decrement_quantity( {{ $item->id }} , {{ presentPrice($item->model->price) }} )">-</div>
+                                        <input class="input-quantity" id="input-quantity-{{ $item->id }}" value="{{ $item->quantity }}">
+                                        <div class="btn-increment-decrement" onClick="increment_quantity( {{ $item->id }} , {{ presentPrice($item->model->price) }} )">+</div>
+                                    </div>
                                 </div>
 {{--                                {{ dd($item) }}--}}
-                                <div>${{ presentPrice($item->model->price * $item->quantity ) }}</div>
+                                <div class="cart-table-price">
+                                    <div id="cart-price-{{ $item->model->id }}">${{ presentPrice($item->model->price * $item->quantity ) }}</div>
+                                    <div class="cart-table-price_unit">${{ presentPrice($item->model->price) }}</div>
+                                </div>
+
                             </div>
                         </div>
                     @endforeach
@@ -176,8 +188,8 @@
                         quantity: this.value
                     })
                         .then(function (response) {
-                            console.log(response);
                             window.location.href = '{{ route('cart.index') }}'
+                            console.log(response);
                         })
                         .catch(function (error) {
                             // console.log(error);
@@ -186,5 +198,46 @@
                 })
             })
         })();
+
+        function increment_quantity(id, price) {
+            var inputQuantityElement = $("#input-quantity-"+id);
+            var newQuantity = parseInt($(inputQuantityElement).val())+1;
+            console.log(newQuantity);
+            // $(inputQuantityElement).val(newQuantity);
+            var newPrice = newQuantity * price;
+            save_to_db(id, newQuantity, newPrice);
+        }
+        function decrement_quantity(id, price) {
+            var inputQuantityElement = $("#input-quantity-"+id);
+            if($(inputQuantityElement).val() > 1){
+                var newQuantity = parseInt($(inputQuantityElement).val())-1;
+                // $(inputQuantityElement).val(newQuantity);
+            }
+            console.log(newQuantity);
+            var newPrice = newQuantity * price;
+            save_to_db(id, newQuantity, newPrice);
+        }
+
+        function save_to_db(cart_id, new_quantity, newPrice) {
+            var inputQuantityElement = $("#input-quantity-"+cart_id);
+            var priceElement = $("#cart-price-"+cart_id);
+            // const id =  element.getAttribute('data-id')
+            // console.log(cart_id);
+            console.log(cart_id);
+            axios.patch(`/cart/${cart_id}`, {
+                id: cart_id,
+                quantity: new_quantity
+            })
+                .then(function (response) {
+                    // $(inputQuantityElement).val(new_quantity);
+                    // $(priceElement).text("$"+newPrice);
+                    window.location.href = '{{ route('cart.index') }}'
+                    console.log();
+                })
+                .catch(function (error) {
+                    // console.log(error);
+                    window.location.href = '{{ route('cart.index') }}'
+                });
+        }
     </script>
 @endsection
