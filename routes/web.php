@@ -33,7 +33,7 @@ Route::get('portfolio', function () {
 
 
 /***** Panel Admin *****/
-Route::get('admin', function () {
+Route::get('admin2/', function () {
     return view('admin.pages.dashboard');
 })->name('admin');
 
@@ -70,4 +70,9 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::get('empty', function (){
     \Cart::session('saveForLater')->clear();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
 });
