@@ -10,6 +10,7 @@ class StoreController extends Controller
 {
     public function index()
     {
+
         $categories = Category::all();
         if (request()->category) {
             $products = Product::with('category')->whereHas('category', function ($query){

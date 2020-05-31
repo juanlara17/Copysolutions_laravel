@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 12, 2)->default(0);
             $table->decimal('price_old', 12, 2)->default(0);
             $table->integer('percent_promo')->unsigned()->default(0);
-            $table->string('image', 300);
+//            $table->string('image', 300);
             $table->boolean('visible'); /* Es lo mismo que ACTIVO */
             $table->boolean('slide_principal');
             $table->string('state');

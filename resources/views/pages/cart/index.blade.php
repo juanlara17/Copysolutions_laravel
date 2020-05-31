@@ -27,7 +27,7 @@
                         <div class="cart-table-row">
                             <div class="cart-table-row-left">
                                 <a href="{{ route('store.show', $item->model->slug) }}">
-                                    <img class="cart-table-img" src="{{ $item->model->images->first()->url }}" alt="item">
+                                    <img class="cart-table-img" src="{{ ProductImageStorage($item->model->image) }}" alt="item">
                                 </a>
                                 <div class="cart-table-details">
                                     <div class="cart-table-item"><a

@@ -28,7 +28,7 @@
                    @forelse($products as $product)
                         <div class="product">
                             <a href="{{route('store.show', $product->slug)}}">
-                                <img src="{{ $product->images->first()->url }}" alt="product">
+                                <img src="{{ ProductImageStorage($product->image) }}" alt="product">
                             </a>
                             <div class="product-content">
                                 <a href="{{ route('store.show', $product->slug) }}">

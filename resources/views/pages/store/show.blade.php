@@ -20,17 +20,18 @@
 
         <div class="">
             <div class="product-section-image">
-                <img src="{{ $product->images->first()->url  }}" alt="product" class="active" id="currentImage">
+                <img src="{{ ProductImageStorage($product->image) }}" alt="product" class="active" id="currentImage">
             </div>
             <div class="product-section-images">
                 <div class="product-section-thumbnail selected">
-                    <img src="{{ $product->images->first()->url }}" alt="product">
+                    <img src="{{ ProductImageStorage($product->image) }}" alt="product">
                 </div>
 
                 @if($product->images)
+{{--                    @dd($product->images)--}}
                     @foreach(json_decode($product->images, true) as $image)
                         <div class="product-section-thumbnail">
-                             <img src="{{ $image['url'] }}" alt="product">
+                             <img src="{{ ProductImageStorage($image) }}" alt="product">
                         </div>
                     @endforeach
                 @endif
@@ -47,7 +48,7 @@
                 {!! $product->description !!}
             </p>
             <p>&nbsp;</p>
-
+{{--            @dump($product->quantity)--}}
             @if($product->quantity <= 0)
                 <form action="{{ route('cart.store') }}" method="POST">
                     @csrf
