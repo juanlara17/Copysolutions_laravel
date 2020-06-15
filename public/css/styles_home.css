@@ -10387,6 +10387,14 @@ form button[type=submit] {
   height: auto;
 }
 
+.modal-footer {
+  background-color: #0B3D8A;
+}
+
+.modal-footer .btn {
+  color: white;
+}
+
 @media only screen and (max-width: 600px) {
   .categorias-item img {
     width: 100%;
@@ -10922,7 +10930,8 @@ header {
 }
 
 .header .navbar-collapse .nav-item {
-  display: inline-block;
+  display: -webkit-box;
+  display: flex;
 }
 
 .header .navbar-collapse .nav-item a {
@@ -10930,12 +10939,19 @@ header {
   display: flex;
   margin-left: 0;
   color: white;
-  font-weight: 200;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .header .navbar-collapse .nav-item img {
   width: 30px;
+}
+
+.header .navbar-collapse .nav-item .nav-link {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 .header .navbar-collapse .nav-item .cart-count {
@@ -10954,6 +10970,11 @@ header {
 .header .navbar-collapse .nav-item .cart-count span {
   display: inline-block;
   margin-bottom: -20px;
+}
+
+.header .navbar-collapse .dropdown-menu a {
+  color: #0B3D8A;
+  font-weight: 400;
 }
 
 .header .navbar-collapse .login {

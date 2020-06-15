@@ -12,7 +12,13 @@ function getStockLevel($quantity)
         $stockLevel = '<div class="badge badge-danger">Not available</div>';
     }*/
 
-   $stockLevel = '<div class="badge badge-success">In Stock</div>';
+   if($quantity > 5) {
+       $stockLevel = '<div class="badge badge-success">In Stock</div>';
+   }elseif (($quantity > 0) && $quantity <= 5){
+       $stockLevel = '<div class="badge badge-warning">Low Stock</div>';
+   }else{
+       $stockLevel = '<div class="badge badge-danger">Not available</div>';
+   }
 
     return $stockLevel;
 }

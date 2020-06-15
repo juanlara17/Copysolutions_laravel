@@ -17,6 +17,7 @@
             <div class="sidebar">
                 <h3>By Category</h3>
                 <ul>
+                    <li class="{{ request()->category == null ? 'active' : '' }}"><a href="{{ route('store.index') }}">All</a></li>
                     @foreach($categories as $category)
                         <li class="{{ request()->category == $category->slug ? 'active' : ''}}"><a href="{{ route('store.index', ['category' => $category->slug]) }}">{{ $category->name }}</a></li>
                     @endforeach

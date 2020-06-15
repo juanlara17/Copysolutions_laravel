@@ -305,6 +305,14 @@
     }
 }
 
+.modal-footer{
+    background-color: $primary;
+
+    .btn{
+        color: white;
+    }
+}
+
 
 @media only screen and (max-width: 600px) {
     .categorias-item {

@@ -4,42 +4,42 @@
     <div class="publ___content">
         <div class="publc">
             <div class="inner">
-                <p>Lorem impus
+                <p>Bussines Cards
                     <br>
-                    <a href="">Ver mas</a>
+                    <a href="">See More</a>
                 </p>
-                <img src="{{ asset('asset/images/box1.jpg') }}" alt="Publicidad"/>
+                <img src="{{ asset('images/banner_publ/b_card1.jpg') }}" alt="business_card"/>
 
             </div>
         </div>
 
         <div class="publc">
             <div class="inner">
-                <p>Lorem impus
+                <p>Flayers
                     <br>
-                    <a href="">Ver mas</a>
+                    <a href="">See more</a>
                 </p>
-                <img src="{{ asset('asset/images/box2.jpg') }}" alt="Publicidad"/>
+                <img src="{{ asset('images/banner_publ/flayer.jpg') }}" alt="flayer"/>
             </div>
         </div>
 
         <div class="publc">
             <div class="inner">
-                <p>Lorem impus
+                <p>Banner Stands
                     <br>
-                    <a href="">Ver mas</a>
+                    <a href="">See more</a>
                 </p>
-                <img src="{{ asset('asset/images/box3.png') }}" alt="Publicidad"/>
+                <img src="{{ asset('images/banner_publ/Banner_Stands.jpg') }}" alt="banner_stand"/>
             </div>
         </div>
 
         <div class="publc">
             <div class="inner">
-                <p>Lorem impus
+                <p>Posters
                     <br>
-                    <a href="">Ver mas</a>
+                    <a href="">See more</a>
                 </p>
-                <img src="{{ asset('asset/images/box4.jpg') }}" alt="Publicidad"/>
+                <img src="{{ asset('images/banner_publ/poster.jpg') }}" alt="poster"/>
             </div>
         </div>
 

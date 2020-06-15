@@ -35,7 +35,7 @@ Route::get('portfolio', function () {
 /***** Panel Admin *****/
 Route::get('admin2/', function () {
     return view('admin.pages.dashboard');
-})->name('admin');
+})->name('admin2');
 
 /***** Resources Category ******/
 Route::resource('admin/category', 'Admin\CategoryController')->names('admin.category');
@@ -56,6 +56,8 @@ Route::post('saveForLater/{product}', 'SaveForLaterController@switchToCart')->na
 
 /***** Checkout ******/
 Route::resource('checkout', 'CheckoutController')->names('checkout');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.index');
 
 /***** Confirmation *******/
 Route::resource('confirmation', 'ConfirmationController')->names('confirmation');
@@ -72,7 +74,7 @@ Route::get('empty', function (){
     \Cart::session('saveForLater')->clear();
 });
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+

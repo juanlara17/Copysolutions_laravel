@@ -49,7 +49,7 @@
             </p>
             <p>&nbsp;</p>
 {{--            @dump($product->quantity)--}}
-            @if($product->quantity <= 0)
+            @if($product->quantity > 0)
                 <form action="{{ route('cart.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{ $product->id }}">
