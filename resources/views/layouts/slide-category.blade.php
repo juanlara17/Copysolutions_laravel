@@ -1,5 +1,5 @@
 <div class="categories">
-    <h1>categories</h1>
+    <h1>Designs</h1>
     <section class="slider-category">
         <div class="carousel__container">
             <div class="carousel-item">

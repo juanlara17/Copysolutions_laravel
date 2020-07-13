@@ -19,6 +19,8 @@
         @csrf
         @method('PUT')
 
+
+
         <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">

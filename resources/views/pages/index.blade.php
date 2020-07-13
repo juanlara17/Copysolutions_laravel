@@ -34,7 +34,7 @@
             </div>
         </section>
         <!-- Fin de section de envios y pagos-->
-
+        <upload-files :post_url="'/upload-file'"></upload-files>
         <!--Section de productos recomendados-->
         <section class="product">
             <h1>PRODUCTOS RECOMENDADOS</h1>

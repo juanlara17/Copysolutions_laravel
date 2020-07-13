@@ -1,8 +1,10 @@
 <?php
 
-use App\Image;
 use App\Product;
-use App\User;
+use App\SlidePrincipal;
+use App\SlideSecondary;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /***** Load Image *****/
 /*Route::get('/test', function (Save) {
@@ -11,6 +13,10 @@ use App\User;
     return $product;
  });*/
 
+Route::get('/storage', function () {
+    return Artisan::call('storage:link');
+});
+
 Route::get('cancel/{route}', function ($route) {
     return redirect()->route($route)->with('cancel',
         'Record cancel');
@@ -18,7 +24,11 @@ Route::get('cancel/{route}', function ($route) {
 
 /***** Official Page  *****/
 Route::get('/', function () {
-    return view('pages.index');
+    $slider = SlidePrincipal::all();
+    $slider_secondary = SlideSecondary::all();
+    $products = Product::all();
+//    return $slide;
+    return view('pages.index', compact('slider','slider_secondary','products'));
 })->name('index');
 
 /***** Contact *****/
@@ -73,8 +83,12 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('empty', function (){
     \Cart::session('saveForLater')->clear();
 });
-
+/***** Voyager ******/
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+/****** File Upload ******/
+Route::post('upload-file', 'FileEntryController@uploadFile');
+Route::get('create', 'FileEntryController@create');
+Route::delete('delete/{id}', 'FileEntryController@destroy');

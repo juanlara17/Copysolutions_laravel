@@ -13,6 +13,8 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('formulario', require('./components/Formulario.vue').default);
+Vue.component('upload-files', require('./components/UploadFiles').default);
+Vue.component('variations', require('./components/Variations').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -40,6 +42,7 @@ if (document.getElementById('confirmdelete')) {
 if (document.getElementById('api_search_autocomplete')) {
     require('./admin/api_search_autocomplete')
 }
+
 
 
 

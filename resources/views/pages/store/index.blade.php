@@ -5,7 +5,7 @@
 @endsection
 
 @section('container')
-
+{{--    @dd($products)--}}
     @component('components.bradcrumbs')
         <a href="/">Home</a>
         <i class="fa fa-chevron-right bread-separator"></i>
@@ -29,7 +29,7 @@
                    @forelse($products as $product)
                         <div class="product">
                             <a href="{{route('store.show', $product->slug)}}">
-                                <img src="{{ ProductImageStorage($product->image) }}" alt="product">
+                                <img style="width: 250px; height: 250px; max-width:600px;" src="{{ ProductImageStorage($product->image) }}" alt="product">
                             </a>
                             <div class="product-content">
                                 <a href="{{ route('store.show', $product->slug) }}">
