@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use function MongoDB\BSON\toJSON;
 
 class StoreController extends Controller
 {
@@ -39,8 +40,11 @@ class StoreController extends Controller
 
     public function show($slug)
     {
-        $product = Product::with('images','category')->where('slug', $slug)->firstOrFail();
-
+        $product = Product::with('images','category','dimensions')->where('slug', $slug)->firstOrFail();
+        $dimen_product = json_decode($product, true);
+        foreach ($dimen_product['dimensions'] as $item) {
+            $dimens [] = $item['dimension'];
+        }
         /* Toma cuatro producto diferentes para colocarlos de sugerencias*/
         $mightAlsoLike = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get();
 //        return $mightAlsoLike;
@@ -50,7 +54,8 @@ class StoreController extends Controller
         return view('pages.store.show')->with([
             'product' => $product,
             'mightAlsoLike' => $mightAlsoLike,
-            'stockLevel' => $stockLevel
+            'stockLevel' => $stockLevel,
+            'dimensions' => $dimens
         ]);
     }
 }

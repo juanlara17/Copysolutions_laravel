@@ -2073,7 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['post_url'],
+  props: ['post_url', 'env_url'],
   data: function data() {
     return {
       files: [],
@@ -2203,22 +2203,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 Vue.component('v-select', vue_select__WEBPACK_IMPORTED_MODULE_1___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['product'],
+  props: ['dimens', 'product'],
   data: function data() {
     return {
-      dimension: ['4.5x3.0', '2.0x3.5', '4.0x11.5'],
-      quantity: [250, 500, 1000, 5000, 10000, 20000, 50000, 100000],
-      show_price: false
+      quantities: [250, 500, 1000, 5000, 10000, 20000, 50000, 100000],
+      show_price: false,
+      dimension: null,
+      quantity: null
     };
   },
-  methods: {
-    dropdown: function dropdown() {}
+  mounted: function mounted() {
+    console.log(this.dimens);
   },
-  mounted: function mounted() {// console.log(this.product.price)
+  methods: {
+    selected_dimension: function selected_dimension() {}
+  },
+  computed: {
+    showPrice: function showPrice() {
+      if (this.dimension && this.quantity) {
+        this.show_price = true;
+      }
+    }
   }
 });
 
@@ -2274,7 +2286,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*Styling Selectbox*/\n.dropdown[data-v-dabc252a] {\n    width: 300px;\n    display: inline-block;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 0 2px rgb(204, 204, 204);\n    -webkit-transition: all .5s ease;\n    transition: all .5s ease;\n    position: relative;\n    font-size: 14px;\n    color: #474747;\n    height: 100%;\n    text-align: left\n}\n.dropdown .select[data-v-dabc252a] {\n    cursor: pointer;\n    display: block;\n    padding: 10px\n}\n.dropdown .select > i[data-v-dabc252a] {\n    font-size: 13px;\n    color: #888;\n    cursor: pointer;\n    -webkit-transition: all .3s ease-in-out;\n    transition: all .3s ease-in-out;\n    float: right;\n    line-height: 20px\n}\n.dropdown[data-v-dabc252a]:hover {\n    box-shadow: 0 0 4px rgb(204, 204, 204)\n}\n.dropdown[data-v-dabc252a]:active {\n    background-color: #f8f8f8\n}\n.dropdown.active[data-v-dabc252a]:hover,\n.dropdown.active[data-v-dabc252a] {\n    box-shadow: 0 0 4px rgb(204, 204, 204);\n    border-radius: 2px 2px 0 0;\n    background-color: #f8f8f8\n}\n.dropdown.active .select > i[data-v-dabc252a] {\n    -webkit-transform: rotate(-90deg);\n            transform: rotate(-90deg)\n}\n.dropdown .dropdown-menu[data-v-dabc252a] {\n    position: absolute;\n    background-color: #fff;\n    width: 100%;\n    left: 0;\n    margin-top: 1px;\n    box-shadow: 0 1px 2px rgb(204, 204, 204);\n    border-radius: 0 1px 2px 2px;\n    overflow: hidden;\n    display: none;\n    max-height: 144px;\n    overflow-y: auto;\n    z-index: 9\n}\n.dropdown .dropdown-menu li[data-v-dabc252a] {\n    padding: 10px;\n    -webkit-transition: all .2s ease-in-out;\n    transition: all .2s ease-in-out;\n    cursor: pointer\n}\n.dropdown .dropdown-menu[data-v-dabc252a] {\n    padding: 0;\n    list-style: none\n}\n.dropdown .dropdown-menu li[data-v-dabc252a]:hover {\n    background-color: #f2f2f2\n}\n.dropdown .dropdown-menu li[data-v-dabc252a]:active {\n    background-color: #e2e2e2\n}\n.container_variations[data-v-dabc252a] {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n}\n.select_data[data-v-dabc252a] {\n    margin-top: 10px;\n    width: 200px;\n    height: 100%;\n    border-radius: 0;\n}\n.select_data h3[data-v-dabc252a]{\n    font-weight: 400;\n}\n", ""]);
+exports.push([module.i, "\n.container_variations[data-v-dabc252a] {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n}\n.select_data[data-v-dabc252a] {\n    margin-top: 10px;\n    width: 200px;\n    height: 100%;\n    border-radius: 0;\n}\n.select_data h3[data-v-dabc252a]{\n    font-weight: 400;\n}\n.product-section-price[data-v-dabc252a] {\n    margin-top: 10px;\n}\n", ""]);
 
 // exports
 
@@ -4541,34 +4553,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container_variations mt-2" }, [
-    _c(
-      "div",
-      { staticClass: "select_data" },
-      [
-        _c("h3", [_vm._v("Dimension")]),
-        _vm._v(" "),
-        _c("v-select", {
-          staticClass: "select_data",
-          attrs: { options: _vm.dimension }
-        })
-      ],
-      1
-    ),
+  return _c("div", { staticClass: "price_element" }, [
+    _c("div", { staticClass: "container_variations mt-2" }, [
+      _c(
+        "div",
+        { staticClass: "select_data" },
+        [
+          _c("h3", [_vm._v("Dimension")]),
+          _vm._v(" "),
+          _c("v-select", {
+            staticClass: "select_data",
+            attrs: { options: this.dimens, "on-change": _vm.showPrice },
+            model: {
+              value: _vm.dimension,
+              callback: function($$v) {
+                _vm.dimension = $$v
+              },
+              expression: "dimension"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "select_data" },
+        [
+          _c("h3", [_vm._v("Quantity")]),
+          _vm._v(" "),
+          _c("v-select", {
+            staticClass: "select_data",
+            attrs: { options: _vm.quantities, "on-change": "showPrice" },
+            model: {
+              value: _vm.quantity,
+              callback: function($$v) {
+                _vm.quantity = $$v
+              },
+              expression: "quantity"
+            }
+          })
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "select_data" },
-      [
-        _c("h3", [_vm._v("Quantiy")]),
-        _vm._v(" "),
-        _c("v-select", {
-          staticClass: "select_data",
-          attrs: { options: _vm.quantity }
-        })
-      ],
-      1
-    )
+    _vm.show_price
+      ? _c("div", { staticClass: "product-section-price" }, [
+          _c("strong", [_vm._v("Price: ")]),
+          _vm._v(" $" + _vm._s(_vm.product.price) + "\n    ")
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

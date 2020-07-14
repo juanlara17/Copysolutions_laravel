@@ -34,7 +34,7 @@ class FileEntryController extends Controller
         $path = time();
         $fileP = $path . $filename;
 
-        if (Storage::disk('local')->put('/files/uploads/'.$fileP, File::get($file))) {
+        if (Storage::disk('local')->put('/files/uploads/'.$fileP, File::get($file), 'public')) {
 
             $input = [
                 'filename' => $filename,

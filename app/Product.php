@@ -19,4 +19,9 @@ class Product extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    public function dimensions()
+    {
+        return $this->belongsToMany(Dimension::class)->withTimestamps();
+    }
 }

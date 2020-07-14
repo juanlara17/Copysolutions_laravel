@@ -48,7 +48,7 @@
 
 <script>
     export  default {
-        props: ['post_url'],
+        props: ['post_url','env_url'],
         data(){
             return {
                 files: [],

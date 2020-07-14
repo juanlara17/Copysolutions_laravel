@@ -46,16 +46,21 @@
 
                 <div class="card mt-2">
                     <div class="card-body">
-                        <upload-files :post_url="'/upload-file'"></upload-files>
+                        <upload-files
+                            :post_url="'/upload-file'"
+                            :env_url="'{{ env('APP_URL')  }}'"
+                        >
+                        </upload-files>
                     </div>
                 </div>
-                <variations :product="{{ $product }}"></variations>
-
+                <div>
+                    <variations
+                        :dimens="{{ json_encode($dimensions) }}"
+                        :product="{{ $product }}"
+                    >
+                    </variations>
+                </div>
 {{--                <div class="product-section-price">${{ $product->price }}</div>--}}
-                <p>
-                    {!! $product->description !!}
-                </p>
-                <p>&nbsp;</p>
     {{--            @dump($product->quantity)--}}
                 @if($product->quantity > 0)
                     <form action="{{ route('cart.store') }}" method="POST">
