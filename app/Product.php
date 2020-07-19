@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+Use Carbon\Carbon;
 
 class Product extends Model
 {
@@ -18,5 +19,27 @@ class Product extends Model
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function dimensions()
+    {
+        return $this->belongsToMany(Dimension::class)->withTimestamps();
+    }
+
+    public function quantities()
+    {
+        return $this->belongsToMany(Quantity::class)->withTimestamps();
+    }
+
+    public function prices()
+    {
+        return $this->belongsToMany(Price::class)->withTimestamps();
+    }
+
+    public function presentPrice()
+    {
+        $usa = new \NumberFormatter("en-US", \NumberFormatter::CURRENCY);
+        $formatted1 = $usa->formatCurrency($this->price, "USD");
+        return $formatted1;
     }
 }

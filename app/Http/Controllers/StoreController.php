@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use function MongoDB\BSON\toJSON;
 
 class StoreController extends Controller
 {
     public function index()
     {
+
         $categories = Category::all();
         if (request()->category) {
-            $products = Product::with('category')->whereHas('category', function ($query){
+//            dd(Product::with('category'));
+            $products = Product::with('category')->where('visible',true)->whereHas('category', function ($query){
                 $query->where('slug', request()->category);
             });
             $categories = Category::all();
@@ -37,7 +40,24 @@ class StoreController extends Controller
 
     public function show($slug)
     {
-        $product = Product::with('images','category')->where('slug', $slug)->firstOrFail();
+        $product = Product::with('images','category','dimensions', 'quantities')->where('slug', $slug)->firstOrFail();
+        $json_product = json_decode($product, true);
+
+        if ($json_product['dimensions']) {
+            foreach ($json_product['dimensions'] as $item) {
+                $dimens [] = $item['dimension'];
+            }
+        }else{
+            $dimens = '';
+        }
+
+        if ($json_product['quantities']){
+            foreach ($json_product['quantities'] as $item) {
+                $quantities[] = $item['quantity'];
+            }
+        }else{
+            $quantities = '';
+        }
 
         /* Toma cuatro producto diferentes para colocarlos de sugerencias*/
         $mightAlsoLike = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get();
@@ -48,7 +68,9 @@ class StoreController extends Controller
         return view('pages.store.show')->with([
             'product' => $product,
             'mightAlsoLike' => $mightAlsoLike,
-            'stockLevel' => $stockLevel
+            'stockLevel' => $stockLevel,
+            'dimensions' => $dimens,
+            'quantities' => $quantities
         ]);
     }
 }

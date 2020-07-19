@@ -85,7 +85,7 @@
                     <button type="submit" id="complete-order" class="button-primary full-width">Complete Order</button>
                 </form>
 
-                @if(true)
+                @if(false)
                     <div class="mt-32">or</div>
                     <div class="mt-32">
                         <h2>Pay with Paypal</h2>
@@ -114,7 +114,7 @@
 {{--                        {{ dd($item) }}--}}
                         <div class="checkout-table-row">
                             <div class="checkout-table-row-left">
-                                <img src="{{ $item->model->images->first()->url }}" alt="item" class="checkout-table-img">
+                                    <img src="{{ ProductImageStorage($item->model->image) }}" alt="item" class="checkout-table-img">
                                 <div class="checkout-details">
                                     <div class="checkout-table-item">{{ $item->model->name }}</div>
                                     <div class="checkout-table-description">{{ $item->model->extract }}</div>

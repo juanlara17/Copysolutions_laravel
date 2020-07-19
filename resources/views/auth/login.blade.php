@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
-@section('content')
+@section('container')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card m-5">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -61,6 +61,12 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
+                                @endif
+                                @if (\Cart::session('default')->getContent()->count() > 0)
+{{--                                    @dump(\Cart::session('default')->getContent())--}}
+                                <div class="button-checkout">
+                                    <a class="btn btn-secondary " href="{{ route('guestCheckout.index') }}">Checkout as a Guest</a>
+                                </div>
                                 @endif
                             </div>
                         </div>

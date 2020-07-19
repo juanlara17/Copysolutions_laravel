@@ -12,7 +12,13 @@ function getStockLevel($quantity)
         $stockLevel = '<div class="badge badge-danger">Not available</div>';
     }*/
 
-   $stockLevel = '<div class="badge badge-success">In Stock</div>';
+   if($quantity > 5) {
+       $stockLevel = '<div class="badge badge-success">In Stock</div>';
+   }elseif (($quantity > 0) && $quantity <= 5){
+       $stockLevel = '<div class="badge badge-warning">Low Stock</div>';
+   }else{
+       $stockLevel = '<div class="badge badge-danger">Not available</div>';
+   }
 
     return $stockLevel;
 }
@@ -44,3 +50,10 @@ function presentPrice($price)
     $formatted1 = $usa->format($price);
     return $formatted1;
 }
+
+function ProductImageStorage($path)
+{
+    return $path && file_exists('storage/' . $path) ? asset('storage/' . $path) : asset('asset/images/image_not_available.jpg');
+}
+
+
