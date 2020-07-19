@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDimensionsTable extends Migration
+class CreatePriceProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateDimensionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dimensions', function (Blueprint $table) {
+       /* Schema::create('price_product', function (Blueprint $table) {
             $table->id();
-            $table->string('dimension',50 );
+            $table->foreignId('product_id')->references('id')->on('products');
+            $table->foreignId('price_id')->references('id')->on('prices');
             $table->timestamps();
-        });
+        });*/
     }
 
     /**
@@ -27,6 +28,6 @@ class CreateDimensionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dimensions');
+        Schema::dropIfExists('price_product');
     }
 }

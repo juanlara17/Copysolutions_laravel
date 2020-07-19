@@ -64,7 +64,9 @@
                                 @endif
                                 @if (\Cart::session('default')->getContent()->count() > 0)
 {{--                                    @dump(\Cart::session('default')->getContent())--}}
-                                    <a class="btn btn-default" href="{{ route('guestCheckout.index') }}">Checkout as a Guest</a>
+                                <div class="button-checkout">
+                                    <a class="btn btn-secondary " href="{{ route('guestCheckout.index') }}">Checkout as a Guest</a>
+                                </div>
                                 @endif
                             </div>
                         </div>

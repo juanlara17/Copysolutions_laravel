@@ -56,6 +56,7 @@
                 <div>
                     <variations
                         :dimens="{{ json_encode($dimensions) }}"
+                        :quantities="{{ json_encode($quantities) }}"
                         :product="{{ $product }}"
                     >
                     </variations>

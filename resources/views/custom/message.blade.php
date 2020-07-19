@@ -6,6 +6,7 @@
     </div>
 @endif
 {{-- MESSAGE ERRORS --}}
+
 @if(count($errors) > 0)
     <div class="alert alert-danger mt-3">
         <ul>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDimensionsTable extends Migration
+class CreateQuantitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateDimensionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dimensions', function (Blueprint $table) {
+        /*Schema::create('quantities', function (Blueprint $table) {
             $table->id();
-            $table->string('dimension',50 );
+            $table->decimal('quantity', 12, 2);
             $table->timestamps();
-        });
+        });*/
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateDimensionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dimensions');
+        Schema::dropIfExists('quantities');
     }
 }

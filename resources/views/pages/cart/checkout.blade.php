@@ -85,7 +85,7 @@
                     <button type="submit" id="complete-order" class="button-primary full-width">Complete Order</button>
                 </form>
 
-                @if(true)
+                @if(false)
                     <div class="mt-32">or</div>
                     <div class="mt-32">
                         <h2>Pay with Paypal</h2>

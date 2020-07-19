@@ -26,7 +26,7 @@
 
                         <div class="cart-table-row">
                             <div class="cart-table-row-left">
-                                <a href="{{ route('store.show', $item->model->slug) }}">
+                                <a class="cart-image_product" href="{{ route('store.show', $item->model->slug) }}">
                                     <img class="cart-table-img" src="{{ ProductImageStorage($item->model->image) }}" alt="item">
                                 </a>
                                 <div class="cart-table-details">
@@ -50,20 +50,12 @@
                                     </form>
                                 </div>
                                 <div>
-{{--                                    @dump($item->quantity)--}}
-                                   {{-- <select class="quantity" data-id="{{ $item->id }}">
-                                        @for($i = 1; $i < 5 + 1; $i++)
-                                            <option {{ $item->quantity == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                        @endfor
-
-                                    </select>--}}
                                     <div class="cart-info quantity" data-id="{{ $item->id }}">
                                         <div class="btn-increment-decrement" onClick="decrement_quantity( {{ $item->id }} , {{ presentPrice($item->model->price) }} )">-</div>
                                         <input class="input-quantity" id="input-quantity-{{ $item->id }}" value="{{ $item->quantity }}">
                                         <div class="btn-increment-decrement" onClick="increment_quantity( {{ $item->id }} , {{ presentPrice($item->model->price) }} )">+</div>
                                     </div>
                                 </div>
-{{--                                {{ dd($item) }}--}}
                                 <div class="cart-table-price">
                                     <div id="cart-price-{{ $item->model->id }}">${{ presentPrice($item->model->price * $item->quantity ) }}</div>
                                     <div class="cart-table-price_unit">${{ presentPrice($item->model->price) }}</div>

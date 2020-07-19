@@ -8,7 +8,7 @@
 
                 <div class="select_data">
                     <h3>Quantity</h3>
-                    <v-select v-model="quantity" class="select_data" :options="quantities" on-change="showPrice"></v-select>
+                    <v-select v-model="quantity" class="select_data" :options="this.quantities" on-change="showPrice"></v-select>
                 </div>
         </div>
 
@@ -24,17 +24,16 @@
     Vue.component('v-select', vSelect)
 
     export default {
-        props: ['dimens','product'],
+        props: ['dimens','quantities','product'],
         data() {
             return {
-                quantities: [250,500,1000,5000,10000,20000,50000,100000],
                 show_price: false,
                 dimension: null,
                 quantity: null
             }
         },
         mounted() {
-            console.log(this.dimens)
+            console.log(this.quantities)
         },
         methods: {
             selected_dimension() {
@@ -51,6 +50,10 @@
 </script>
 
 <style scoped>
+
+    .price_element {
+        margin-bottom: 15px;
+    }
     .container_variations {
         display: flex;
         justify-content: space-between;
